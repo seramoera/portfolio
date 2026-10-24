@@ -45,34 +45,6 @@ function Receipt() {
   )
 }
 
-function Aperture() {
-  const blades = [0, 60, 120, 180, 240, 300].map((deg) => {
-    const rad = (deg * Math.PI) / 180
-    const x1 = 160 + Math.cos(rad) * 34
-    const y1 = 200 + Math.sin(rad) * 34
-    const x2 = 160 + Math.cos(rad) * 118
-    const y2 = 200 + Math.sin(rad) * 118
-    return `M${x1.toFixed(1)} ${y1.toFixed(1)}L${x2.toFixed(1)} ${y2.toFixed(1)}`
-  })
-
-  return (
-    <svg viewBox="0 0 320 400" aria-hidden="true" focusable="false">
-      <circle cx="160" cy="200" r="96" {...s} />
-      <circle cx="160" cy="200" r="74" {...s} opacity="0.55" />
-      <circle cx="160" cy="200" r="34" {...s} />
-      {blades.map((d, i) => (
-        <path key={i} d={d} {...s} opacity="0.45" />
-      ))}
-      {/* focal point */}
-      <circle cx="160" cy="200" r="6" {...accent} />
-      {/* frame ticks */}
-      <path d="M160 68v-16M160 348v-16M28 200H12M308 200h-16" {...s} opacity="0.6" />
-      {/* horizon */}
-      <path d="M52 290h216" strokeDasharray="2 8" {...s} opacity="0.35" />
-    </svg>
-  )
-}
-
 function Roster() {
   return (
     <svg viewBox="0 0 320 400" aria-hidden="true" focusable="false">
@@ -94,6 +66,32 @@ function Roster() {
       {/* header ticks */}
       <path d="M58 58h72M58 68h38" {...s} opacity="0.5" />
       <path d="M262 58h-16" {...s} opacity="0.3" />
+    </svg>
+  )
+}
+
+function Cards() {
+  return (
+    <svg viewBox="0 0 320 400" aria-hidden="true" focusable="false">
+      {/* card behind */}
+      <rect x="52" y="88" width="122" height="172" rx="6" {...s} opacity="0.5" />
+      <rect x="70" y="106" width="86" height="56" rx="2" {...s} opacity="0.35" />
+      <path d="M70 180h62M70 196h44M70 212h74" {...s} opacity="0.3" />
+
+      {/* card in front */}
+      <rect x="146" y="124" width="122" height="172" rx="6" {...s} />
+      <rect x="164" y="142" width="86" height="56" rx="2" {...s} opacity="0.6" />
+      <path d="M164 216h62M164 232h44M164 248h74" {...s} opacity="0.5" />
+      <circle cx="243" cy="276" r="3" {...accent} />
+
+      {/* trade glyph: one card out, one card in */}
+      <path d="M104 332h72" {...s} opacity="0.5" />
+      <path d="M168 324l8 8-8 8" {...accent} />
+      <path d="M176 368h-72" {...s} opacity="0.5" />
+      <path d="M112 360l-8 8 8 8" {...s} opacity="0.5" />
+
+      {/* registration ticks */}
+      <path d="M36 110V88h22M284 88v22M36 310v22h22" {...s} opacity="0.3" />
     </svg>
   )
 }
@@ -140,7 +138,7 @@ function Road() {
 
 const art = {
   receipt: Receipt,
-  aperture: Aperture,
+  cards: Cards,
   roster: Roster,
   road: Road,
 }

@@ -15,3 +15,9 @@ export const ArrowRight = (props) => (
     <path d="M2 7h10M8 3l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 )
+
+export const Download = (props) => (
+  <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true" {...props}>
+    <path d="M7 1.5v7M4.2 6l2.8 2.8L9.8 6M2 12h10" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+)

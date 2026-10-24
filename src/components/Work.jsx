@@ -1,8 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { projects } from '../data/projects.js'
-import ProjectArt from './ProjectArt.jsx'
+import Barcode from './Barcode.jsx'
+import CrtTv from './CrtTv.jsx'
 import Reveal from './Reveal.jsx'
-import { ArrowLeft, ArrowRight, ArrowUpRight } from './Icons.jsx'
+import SectionHead from './SectionHead.jsx'
+import Tilt from './Tilt.jsx'
+import { ArrowUpRight } from './Icons.jsx'
 
 export default function Work() {
   const [active, setActive] = useState(0)
@@ -14,7 +17,7 @@ export default function Work() {
     [count]
   )
 
-  // Left/right arrows move the carousel, but only while it has focus.
+  // Left/right arrows move the dial, but only while the set has focus.
   useEffect(() => {
     const el = stage.current
     if (!el) return
@@ -36,80 +39,183 @@ export default function Work() {
   const project = projects[active]
 
   return (
-    <section className="section" id="work" aria-labelledby="work-title">
+    <section
+      className="section work"
+      id="work"
+      data-num="01"
+      aria-labelledby="work-title"
+    >
       <div className="wrap">
-        <Reveal className="section__head">
-          <h2 className="label" id="work-title">
-            01 — Selected work
-          </h2>
-          <span className="label work__count">
-            {String(active + 1).padStart(2, '0')} / {String(count).padStart(2, '0')}
-          </span>
-        </Reveal>
+        <SectionHead
+          num="01"
+          label="Selected work"
+          meta={`${String(count).padStart(2, '0')} channels · 2025—2026`}
+        />
 
-        <Reveal delay={80}>
-          <div
-            className="work__stage"
-            ref={stage}
-            tabIndex={0}
-            role="group"
-            aria-roledescription="carousel"
-            aria-label="Selected work. Use the left and right arrow keys to move between projects."
-          >
-            <p className="sr-only" aria-live="polite">
-              {project.title}, project {active + 1} of {count}
+        <div className="work__intro">
+          <Reveal as="h2" id="work-title" className="display" variant="clip">
+            Work that had <em>to hold up.</em>
+          </Reveal>
+          <Reveal className="work__intro-copy" delay={90}>
+            <p>
+              Four builds, each one a constraint I had to design around. Tune the
+              set, then open the case file for the decisions behind it.
             </p>
+            <span className="label work__intro-note">
+              <i aria-hidden="true" />
+              Now showing · channel {project.num}
+            </span>
+          </Reveal>
+        </div>
 
-            <article className="work__slide" key={project.id}>
-              <div className="work__body">
-                <div className="work__crumbs">
-                  <span className="label">{project.category}</span>
-                  <span className="label">{project.year}</span>
-                </div>
+        <div
+          className="work__stage"
+          ref={stage}
+          tabIndex={0}
+          role="group"
+          aria-roledescription="carousel"
+          aria-label="Selected work. Use the left and right arrow keys to change channel."
+        >
+          <div className="work__layout">
+            <Reveal className="work__media" variant="left">
+              <Tilt max={3.5} className="tv-wrap">
+                <CrtTv projects={projects} active={active} onChange={setActive} />
+              </Tilt>
 
-                <h3 className="work__title">{project.title}</h3>
-                <p className="work__summary">{project.summary}</p>
-                <p className="work__detail">{project.detail}</p>
+              <div className="work__under">
+                <span className="label">Now showing</span>
+                <span className="work__under-title">{project.title}</span>
+                <span className="label work__under-ch">
+                  CH {project.num} / {String(count).padStart(2, '0')}
+                </span>
+              </div>
+            </Reveal>
 
-                <ul className="work__stack" aria-label="Built with">
-                  {project.stack.map((tool) => (
-                    <li key={tool}>{tool}</li>
-                  ))}
-                </ul>
-
-                <div className="work__links">
-                  {project.links.map((link) => (
-                    <a key={link.label} href={link.href}>
-                      {link.label}
-                      <ArrowUpRight />
-                    </a>
-                  ))}
-                </div>
+            <div className="work__info" key={project.id}>
+              <div className="work__crumbs">
+                <span className="label">{project.category}</span>
+                <span className="label">{project.year}</span>
+                <span className="label work__onair">
+                  <i aria-hidden="true" />
+                  On air
+                </span>
               </div>
 
-              <figure className="work__media">
-                <ProjectArt kind={project.art} />
-                <figcaption className="work__media-note label">
-                  Placeholder — screenshot to come
-                </figcaption>
-              </figure>
-            </article>
+              <h3 className="work__title">{project.title}</h3>
+              <p className="work__summary">{project.summary}</p>
+              <p className="work__detail">{project.detail}</p>
 
-            <div className="work__controls">
-              <button type="button" onClick={() => go(-1)} aria-label="Previous project">
-                <ArrowLeft />
-              </button>
-              <button type="button" onClick={() => go(1)} aria-label="Next project">
-                <ArrowRight />
-              </button>
-              <div className="work__progress" aria-hidden="true">
-                <span style={{ width: `${((active + 1) / count) * 100}%` }} />
+              <ul className="chips" aria-label="Built with">
+                {project.stack.map((tool) => (
+                  <li key={tool}>{tool}</li>
+                ))}
+              </ul>
+
+              <div className="work__links">
+                {project.links.map((link) => (
+                  <a key={link.label} href={link.href}>
+                    {link.label}
+                    <ArrowUpRight />
+                  </a>
+                ))}
+                <span className="work__file label">
+                  FILE {project.num} / {String(count).padStart(2, '0')}
+                </span>
               </div>
+
+              {project.caseStudy ? (
+                <details className="ticket">
+                  <summary className="ticket__summary">
+                    <span className="ticket__badge">
+                      CASE
+                      <br />
+                      STUDY
+                    </span>
+                    <span className="ticket__summary-main">
+                      <span className="ticket__kicker">
+                        File {project.num} · {project.year}
+                      </span>
+                      <span className="ticket__headline">
+                        Inside {project.title}
+                      </span>
+                    </span>
+                    <span className="ticket__action">
+                      <span className="ticket__action-text">Read the case</span>
+                      <span className="ticket__toggle" aria-hidden="true">
+                        <i />
+                        <i />
+                      </span>
+                    </span>
+                  </summary>
+
+                  <div className="ticket__body">
+                    <div className="ticket__tear">
+                      <span>✂ tear along dotted line</span>
+                    </div>
+
+                    <div className="ticket__paper">
+                      <div className="ticket__receipt-head">
+                        <span>JFM-64 // CASE FILE</span>
+                        <span>
+                          NO. {project.num}—{project.year}
+                        </span>
+                      </div>
+
+                      <p className="ticket__lede">{project.caseStudy.lede}</p>
+
+                      <dl className="ticket__meta">
+                        {project.caseStudy.meta.map((item) => (
+                          <div key={item.label}>
+                            <dt>{item.label}</dt>
+                            <dd>{item.value}</dd>
+                          </div>
+                        ))}
+                      </dl>
+
+                      <div className="ticket__blocks">
+                        {project.caseStudy.blocks.map((block, index) => (
+                          <div className="ticket__block" key={block.label}>
+                            <span className="ticket__block-num">
+                              {String(index + 1).padStart(2, '0')}
+                            </span>
+                            <div>
+                              <h4>{block.label}</h4>
+                              <p>{block.body}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="ticket__foot">
+                        <Barcode
+                          value={`${project.id}-${project.year}`}
+                          height={30}
+                        />
+                        <span className="ticket__thanks">
+                          END OF FILE
+                          <br />
+                          THANK YOU
+                        </span>
+                        <span className="ticket__stamp">Filed</span>
+                      </div>
+                    </div>
+                  </div>
+                </details>
+              ) : null}
             </div>
           </div>
+        </div>
+
+        <Reveal className="work__guide-head" variant="fade">
+          <span className="label">Channel guide</span>
+          <span className="label work__hint-keys">
+            ← / → to tune · click a row
+          </span>
+          <span className="label work__hint-touch">Tap a channel</span>
+          <span className="label work__guide-meta">No. / Project / Category / Year</span>
         </Reveal>
 
-        <Reveal as="ul" className="work__index" delay={140}>
+        <Reveal as="ol" className="guide" delay={80} variant="up">
           {projects.map((item, index) => (
             <li key={item.id}>
               <button
@@ -118,10 +224,14 @@ export default function Work() {
                 aria-current={index === active ? 'true' : undefined}
                 onClick={() => setActive(index)}
               >
-                <span className="label">{item.num}</span>
-                <span className="work__index-title">{item.title}</span>
-                <span className="label">{item.category}</span>
-                <span className="label">{item.year}</span>
+                <span className="guide__ch">CH {item.num}</span>
+                <span className="guide__title">{item.title}</span>
+                <span className="guide__leader" aria-hidden="true" />
+                <span className="guide__cat">{item.category}</span>
+                <span className="guide__year">{item.year}</span>
+                <span className="guide__arrow" aria-hidden="true">
+                  {index === active ? '▶' : '→'}
+                </span>
               </button>
             </li>
           ))}

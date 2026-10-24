@@ -1,0 +1,72 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 3584 >>
+stream
+0.06 0.11 0.27 rg BT /F1 25 Tf 48 790 Td (Jasmine F. Magtanong) Tj ET
+0.28 0.32 0.46 rg BT /F2 10 Tf 48 769 Td (Computer Science Undergraduate - Holy Angel University) Tj ET
+0.28 0.32 0.46 rg BT /F2 8.6 Tf 48 752 Td (Pampanga, Philippines  ·  jasminemagtanong04@gmail.com  ·  portfolio: localhost:5173 \(replace\)) Tj ET
+0.28 0.32 0.46 rg BT /F2 8.6 Tf 48 740 Td (github.com/ \(TODO\)  ·  linkedin.com/in/ \(TODO\)) Tj ET
+1.6 w 0.89 0.34 0.17 RG 48 726 m 547 726 l S
+0.20 0.24 0.38 rg BT /F2 8.8 Tf 48 708 Td (Third-year CS student who builds web and mobile software and cares whether it holds up under pressure.) Tj ET
+0.20 0.24 0.38 rg BT /F2 8.8 Tf 48 696 Td (Looking for a 2026 internship: frontend, mobile, QA, or security-adjacent work.) Tj ET
+0.72 0.26 0.11 rg BT /F1 8 Tf 48 676 Td (EDUCATION) Tj ET
+0.4 w 0.80 0.77 0.70 RG 48 672 m 547 672 l S
+0.09 0.13 0.30 rg BT /F1 9.5 Tf 48 657 Td (BS Computer Science - Holy Angel University \(2023 - present\)) Tj ET
+0.26 0.30 0.44 rg BT /F2 8.6 Tf 48 645 Td (Dean's List. Coursework: data structures, databases, software engineering, networking.) Tj ET
+0.72 0.26 0.11 rg BT /F1 8 Tf 48 624 Td (SELECTED PROJECTS) Tj ET
+0.4 w 0.80 0.77 0.70 RG 48 620 m 547 620 l S
+0.09 0.13 0.30 rg BT /F1 9.5 Tf 48 605 Td (ViVy - Receipt verification for GCash \(2025\)) Tj ET
+0.26 0.30 0.44 rg BT /F2 8.6 Tf 48 593 Td (Flutter, Python, OCR. Validates receipt structure and flags edited or reused screenshots.) Tj ET
+0.09 0.13 0.30 rg BT /F1 9.5 Tf 48 578 Td (Cardbound - Trading ledger for Magic: The Gathering \(2025\)) Tj ET
+0.26 0.30 0.44 rg BT /F2 8.6 Tf 48 566 Td (React. Three-list trade ledger built to be readable on a phone at the card table.) Tj ET
+0.09 0.13 0.30 rg BT /F1 9.5 Tf 48 551 Td (Glide - Membership management for a student organisation \(2025\)) Tj ET
+0.26 0.30 0.44 rg BT /F2 8.6 Tf 48 539 Td (Flutter, Dart, Firebase. Roles, dues, and attendance for a real organisation.) Tj ET
+0.09 0.13 0.30 rg BT /F1 9.5 Tf 48 524 Td (Jeep Box Hero - Narrative game about the Philippine jeepney \(2025\)) Tj ET
+0.26 0.30 0.44 rg BT /F2 8.6 Tf 48 512 Td (Godot, Aseprite. Dialogue system, narrative structure, and 2D art pipeline.) Tj ET
+0.72 0.26 0.11 rg BT /F1 8 Tf 48 491 Td (SKILLS) Tj ET
+0.4 w 0.80 0.77 0.70 RG 48 487 m 547 487 l S
+0.09 0.13 0.30 rg BT /F2 8.8 Tf 48 472 Td (Languages    JavaScript, Python, Java, Dart, SQL, HTML / CSS) Tj ET
+0.09 0.13 0.30 rg BT /F2 8.8 Tf 48 459 Td (Build        React, Flutter, Firebase, Node.js, Figma, responsive UI) Tj ET
+0.09 0.13 0.30 rg BT /F2 8.8 Tf 48 446 Td (Practice     Prompt engineering, LLM evaluation, technical writing, Git) Tj ET
+0.72 0.26 0.11 rg BT /F1 8 Tf 48 426 Td (CERTIFICATIONS) Tj ET
+0.4 w 0.80 0.77 0.70 RG 48 422 m 547 422 l S
+0.09 0.13 0.30 rg BT /F2 8.8 Tf 48 407 Td (Responsive Web Design - freeCodeCamp \(2024\)) Tj ET
+0.09 0.13 0.30 rg BT /F2 8.8 Tf 48 394 Td (Introduction to Cybersecurity - Cisco Networking Academy \(2024\)) Tj ET
+0.09 0.13 0.30 rg BT /F2 8.8 Tf 48 381 Td (AWS Academy Cloud Foundations - AWS Academy \(2025\)) Tj ET
+0.09 0.13 0.30 rg BT /F2 8.8 Tf 48 368 Td (IT Fundamentals \(ITF+\) - CompTIA \(2025\)) Tj ET
+0.72 0.26 0.11 rg BT /F1 8 Tf 48 348 Td (CURRENTLY LEARNING) Tj ET
+0.4 w 0.80 0.77 0.70 RG 48 344 m 547 344 l S
+0.09 0.13 0.30 rg BT /F2 8.8 Tf 48 329 Td (Game development - Godot 4 and GDScript. Small systems, dialogue, and a repeatable loop.) Tj ET
+0.4 w 0.80 0.77 0.70 RG 48 74 m 547 74 l S
+0.45 0.45 0.48 rg BT /F2 7 Tf 48 60 Td (PLACEHOLDER FILE - replace with the final resume before sending. Generated for layout only.) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000003887 00000 n 
+0000003989 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+4086
+%%EOF

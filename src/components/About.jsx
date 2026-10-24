@@ -1,59 +1,157 @@
+import Barcode from './Barcode.jsx'
 import Reveal from './Reveal.jsx'
+import SectionHead from './SectionHead.jsx'
+import Tilt from './Tilt.jsx'
 
 export default function About() {
   return (
-    <section className="section" id="about" aria-labelledby="about-title">
+    <section
+      className="section about"
+      id="about"
+      data-num="02"
+      aria-labelledby="about-title"
+    >
       <div className="wrap">
-        <Reveal className="section__head">
-          <h2 className="label" id="about-title">
-            02 — About
-          </h2>
-          <span className="label">Pampanga, PH</span>
-        </Reveal>
+        <SectionHead
+          num="02"
+          label="Personnel file"
+          meta="Pampanga, PH · UTC+8"
+        />
 
         <div className="about__grid">
-          <Reveal>
-            <p className="about__lead">
-              I like the point where a design decision turns into an engineering
-              constraint — and the work of making both of them{' '}
-              <em>hold together.</em>
-            </p>
-          </Reveal>
+          <div className="about__main">
+            <Reveal as="h2" id="about-title" className="display" variant="clip">
+              Close to <em>the problem.</em>
+            </Reveal>
 
-          <Reveal className="about__body" delay={100}>
-            <p>
-              I&apos;m a third-year Computer Science student at Holy Angel
-              University, currently on the Dean&apos;s List. Most of what I know
-              comes from building things that had to work for someone else:
-              a photography site that had to stay out of the way of the pictures,
-              an org membership app that replaced a spreadsheet three people were
-              editing badly.
-            </p>
-            <p>
-              My work sits between design and security. I care about how an
-              interface reads at a glance, and about what happens when someone
-              tries to fake their way through it — which is where ViVy came from.
-            </p>
+            <Reveal className="about__lead" delay={80}>
+              <p>
+                I like the point where a design decision turns into an engineering
+                constraint — and the work of making both of them{' '}
+                <em>hold together.</em>
+              </p>
+            </Reveal>
 
-            <dl className="about__facts">
-              <div>
-                <dt>Education</dt>
-                <dd>BS Computer Science, Holy Angel University, 2023 — present</dd>
+            <div className="about__log">
+              <Reveal className="about__entry" variant="left">
+                <span className="about__entry-num">01</span>
+                <div>
+                  <h3>The short version</h3>
+                  <p>
+                    I&apos;m a third-year Computer Science student at Holy Angel
+                    University, currently on the Dean&apos;s List. Most of what I
+                    know comes from building things that had to work for someone
+                    else: a trading ledger that has to stay readable on a phone at
+                    a card table, an org membership app that replaced a spreadsheet
+                    three people were editing badly.
+                  </p>
+                </div>
+              </Reveal>
+
+              <Reveal className="about__entry" variant="left" delay={60}>
+                <span className="about__entry-num">02</span>
+                <div>
+                  <h3>Between design and security</h3>
+                  <p>
+                    My work sits between how an interface reads at a glance and
+                    what happens when someone tries to fake their way through it.
+                    ViVy came from that second question: a seller holding a bag,
+                    a stranger holding up a screenshot, and a receipt that is only
+                    a picture of a transaction.
+                  </p>
+                </div>
+              </Reveal>
+
+              <Reveal className="about__entry" variant="left" delay={120}>
+                <span className="about__entry-num">03</span>
+                <div>
+                  <h3>AI on purpose</h3>
+                  <p>
+                    I work with AI deliberately rather than by default: writing
+                    prompts that narrow a problem, reading the output critically,
+                    and keeping only what survives a test. The tool is not the
+                    point — the judgement is.
+                  </p>
+                </div>
+              </Reveal>
+            </div>
+
+            <Reveal className="about__currently" variant="scale" delay={80}>
+              <span className="about__currently-label">
+                <i aria-hidden="true" />
+                Currently learning
+              </span>
+              <p>
+                <strong>Game development</strong> — Godot 4 and GDScript. Small
+                systems, a loop worth repeating, and more writing than I expected.
+                <span className="about__currently-link">
+                  Jeep Box Hero is where it is going.
+                </span>
+              </p>
+            </Reveal>
+
+            <Reveal className="about__sign" variant="fade" delay={120}>
+              <span className="about__sign-name">Jasmine F. Magtanong</span>
+              <span className="label">Builder · Pampanga, PH</span>
+            </Reveal>
+          </div>
+
+          <Tilt max={7} className="idcard-tilt">
+            <aside className="idcard" aria-label="Personnel ID card">
+              <div className="idcard__top">
+                <span>Personnel file</span>
+                <span>NO. 02—2026</span>
               </div>
-              <div>
-                <dt>Focus</dt>
-                <dd>Web and mobile development, interface design, verification</dd>
+
+              <div className="idcard__photo">
+                <span className="idcard__photo-grid" aria-hidden="true" />
+                <span className="idcard__initials" aria-hidden="true">
+                  JFM
+                </span>
+                <span className="idcard__pending">Image pending</span>
+                <span className="idcard__scan" aria-hidden="true" />
+                <span className="idcard__stamp">Active</span>
+                <span className="idcard__corner" aria-hidden="true" />
               </div>
-              <div>
-                <dt>Tools</dt>
-                <dd>JavaScript, Python, Java, Dart, SQL, Figma, Git</dd>
+
+              <div className="idcard__body">
+                <span className="label idcard__type">Student · developer</span>
+                <h3>Jasmine F. Magtanong</h3>
+                <p className="idcard__role">
+                  CS undergraduate at Holy Angel University. Building web, mobile
+                  and the occasional small game.
+                </p>
+
+                <dl className="idcard__facts">
+                  <div>
+                    <dt>Based</dt>
+                    <dd>Pampanga, PH</dd>
+                  </div>
+                  <div>
+                    <dt>Education</dt>
+                    <dd>BS CS, HAU · 2023—present</dd>
+                  </div>
+                  <div>
+                    <dt>Standing</dt>
+                    <dd>Dean&apos;s List</dd>
+                  </div>
+                  <div>
+                    <dt>Focus</dt>
+                    <dd>Web, mobile, verification</dd>
+                  </div>
+                  <div>
+                    <dt>Currently</dt>
+                    <dd>Game development · Godot</dd>
+                  </div>
+                </dl>
               </div>
-              <div>
-                <dt>Also</dt>
-                <dd>FreeCodeCamp, Cisco Networking Academy, AWS Academy, CompTIA</dd>
+
+              <div className="idcard__foot">
+                <Barcode value="JASMINE-F-MAGTANONG-2026" height={30} />
+                <span className="idcard__valid">Valid thru 2026</span>
               </div>
-            </dl>
-          </Reveal>
+            </aside>
+          </Tilt>
         </div>
       </div>
     </section>

@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
 
 /**
- * Fades an element up the first time it scrolls into view.
+ * Reveals an element the first time it scrolls into view.
+ * Variants let each section arrive differently: up, left, right, clip, scale.
  * Uses IntersectionObserver so there is no scroll listener.
  */
 export default function Reveal({
   as: Tag = 'div',
   delay = 0,
+  variant = 'up',
   className = '',
   style,
   children,
@@ -33,7 +35,7 @@ export default function Reveal({
           }
         }
       },
-      { rootMargin: '0px 0px -10% 0px', threshold: 0.12 }
+      { rootMargin: '0px 0px -8% 0px', threshold: 0.08 }
     )
 
     io.observe(el)
@@ -43,8 +45,10 @@ export default function Reveal({
   return (
     <Tag
       ref={ref}
-      className={`reveal${seen ? ' is-in' : ''}${className ? ` ${className}` : ''}`}
-      style={{ ...style, '--d': `${delay}ms` }}
+      className={`reveal reveal--${variant}${seen ? ' is-in' : ''}${
+        className ? ` ${className}` : ''
+      }`}
+      style={{ '--d': `${delay}ms`, ...style }}
       {...rest}
     >
       {children}
