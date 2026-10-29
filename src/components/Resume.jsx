@@ -142,11 +142,11 @@ export default function Resume() {
                     <span>2025</span>
                   </div>
                   <div className="sheet__row">
-                    <span>Glide — org membership (Flutter, Firebase)</span>
+                    <span>Glide — org join + announcements (Flutter, Firebase)</span>
                     <span>2025</span>
                   </div>
                   <div className="sheet__row">
-                    <span>Jeep Box Hero — narrative game (Godot)</span>
+                    <span>Jeep Box Hero — OPM record-store game (Godot)</span>
                     <span>2025</span>
                   </div>
                 </section>
@@ -154,23 +154,23 @@ export default function Resume() {
                 <section className="sheet__sec">
                   <h4>Skills</h4>
                   <p className="sheet__line">
-                    JavaScript · Python · Java · Dart · SQL · React · Flutter ·
-                    Firebase · Git · Figma
+                    JavaScript · Python · Java · C++ · C# · Dart · SQL · React ·
+                    Flutter · Firebase · Supabase · Git · Figma
                   </p>
                 </section>
 
                 <section className="sheet__sec">
                   <h4>Certifications</h4>
                   <p className="sheet__line">
-                    Responsive Web Design · Intro to Cybersecurity · AWS Cloud
-                    Foundations · ITF+
+                    Cisco (7) · freeCodeCamp (3) · AWS Academy Cloud Foundations ·
+                    CompTIA ITF+
                   </p>
                 </section>
 
                 <section className="sheet__sec">
                   <h4>Currently</h4>
                   <p className="sheet__line">
-                    Learning game development — Godot 4 and GDScript.
+                    Learning game development — Unity with C++ and C#.
                   </p>
                 </section>
               </div>

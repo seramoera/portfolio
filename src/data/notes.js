@@ -33,10 +33,10 @@ export const notes = [
     excerpt:
       'The old system was not missing features. It was missing a single source of truth, and every feature added another place to look.',
     body: [
-      'The spreadsheet worked for one person. With three officers editing it, it became a record of who typed last: duplicate members, two versions of the same payment, and a column of notes that only one person understood.',
-      'The first useful decision was not to rebuild every column. It was to decide what the organisation actually needed to know: who is a member, what they owe, and who showed up. Everything else was either a report or a habit.',
-      'The second decision was to make the boring path the fast path. Marking attendance takes one tap because it happens every meeting. Adding a member takes a form because it happens once a semester and deserves the friction.',
-      'What it still misses is the part nobody wants to maintain: notifications. A membership app that only tells you something when you open it is still a spreadsheet with better typography.',
+      'The spreadsheet worked for one person. With three officers editing it, it became a record of who typed last: duplicate members, a one-time payment recorded twice, and a notes column that only one person understood.',
+      'The first useful decision was not to rebuild every column. It was to decide what the organisation actually needed: a student-facing join flow and a small admin roster with the member count, the names, and a remove action. Everything else was either a report or a habit.',
+      'The second decision was to keep the two sides separate. A student sees one decision — join, pay the one-time fee, then read announcements. An admin sees the roster. No attendance tracking, no payment ledger, no general org CMS.',
+      'What it still misses is the part nobody wants to maintain: notifications. Announcements are pull-only right now, so a member still has to open the app. That is the next feature, not a reason to add another spreadsheet.',
     ],
   },
   {

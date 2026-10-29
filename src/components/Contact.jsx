@@ -66,9 +66,8 @@ export default function Contact() {
               </h2>
 
               <p className="bbs__copy">
-                I&apos;m looking for a team to learn from for my required
-                practicum — frontend, mobile, QA, or security-adjacent work.
-                Direct line is below.
+                I&apos;m looking for a team to learn from for my required OJT —
+                frontend, mobile, QA, or backend work. Direct line is below.
               </p>
 
               <Magnetic max={12} strength={0.16} className="bbs__magnet">
@@ -106,20 +105,44 @@ export default function Contact() {
               <div className="bbs__channels">
                 <span className="label">Channels</span>
                 <ul>
-                  {site.links.map((link, index) => (
-                    <li key={link.label}>
-                      <a
-                        href={link.href}
-                        target={link.href.startsWith('http') ? '_blank' : undefined}
-                        rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
-                      >
+                  {site.links.map((link, index) => {
+                    const inner = (
+                      <>
                         <span className="bbs__ch-num">0{index + 1}</span>
                         <span className="bbs__ch-label">{link.label}</span>
                         <span className="bbs__ch-leader" aria-hidden="true" />
-                        <ArrowUpRight />
-                      </a>
-                    </li>
-                  ))}
+                        {link.href === '#' ? (
+                          <span className="bbs__ch-soon">soon</span>
+                        ) : (
+                          <ArrowUpRight />
+                        )}
+                      </>
+                    )
+
+                    return (
+                      <li key={link.label}>
+                        {link.href === '#' ? (
+                          <span className="bbs__ch-pending">{inner}</span>
+                        ) : (
+                          <a
+                            href={link.href}
+                            target={
+                              link.href.startsWith('http')
+                                ? '_blank'
+                                : undefined
+                            }
+                            rel={
+                              link.href.startsWith('http')
+                                ? 'noreferrer'
+                                : undefined
+                            }
+                          >
+                            {inner}
+                          </a>
+                        )}
+                      </li>
+                    )
+                  })}
                   <li>
                     <a href={resume.href} download>
                       <span className="bbs__ch-num">
@@ -134,7 +157,7 @@ export default function Contact() {
               </div>
 
               <div className="bbs__badge">
-                <RoundBadge text="OPEN TO INTERNSHIP · 2026 · " />
+                <RoundBadge text="OPEN TO OJT · 2026 · " />
               </div>
             </aside>
           </div>

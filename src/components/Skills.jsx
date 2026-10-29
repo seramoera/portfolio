@@ -101,7 +101,7 @@ export default function Skills() {
                 <span className="cart__load" aria-hidden="true">
                   <i />
                 </span>
-                <span className="label">Godot 4 · GDScript</span>
+                <span className="label">Unity · C++ · C#</span>
               </div>
             </div>
 
@@ -135,7 +135,8 @@ export default function Skills() {
                 </div>
 
                 <span className="cert__issuer">
-                  {cert.issuer} · {cert.year}
+                  {cert.issuer}
+                  {cert.year ? ` · ${cert.year}` : ''}
                 </span>
 
                 <span className="cert__status">Recorded</span>

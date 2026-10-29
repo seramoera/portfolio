@@ -2,7 +2,7 @@
  * Slow-spinning circular label. Pure SVG text on a path, so it stays crisp at
  * any size and costs nothing at runtime.
  */
-export default function RoundBadge({ text = 'Open to internship · 2026 · ' }) {
+export default function RoundBadge({ text = 'Open to OJT · 2026 · ' }) {
   return (
     <div className="badge" aria-hidden="true">
       <svg viewBox="0 0 120 120" focusable="false">

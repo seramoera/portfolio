@@ -96,6 +96,53 @@ function Cards() {
   )
 }
 
+function Records() {
+  return (
+    <svg viewBox="0 0 320 400" aria-hidden="true" focusable="false">
+      {/* sleeve behind the vinyl */}
+      <g transform="rotate(-7 140 152)" opacity="0.35">
+        <rect x="52" y="64" width="176" height="176" rx="4" {...s} />
+        <rect x="68" y="80" width="144" height="144" rx="2" {...s} opacity="0.4" />
+      </g>
+
+      {/* record and grooves */}
+      <g className="record-disc">
+        <circle cx="142" cy="152" r="94" {...s} />
+        <circle cx="142" cy="152" r="76" {...s} opacity="0.4" />
+        <circle cx="142" cy="152" r="56" {...s} opacity="0.25" />
+        <circle cx="142" cy="152" r="30" {...s} opacity="0.6" />
+        <circle cx="142" cy="152" r="7" {...accent} />
+        <path d="M142 152l27-13" {...accent} opacity="0.75" />
+      </g>
+
+      {/* tonearm */}
+      <circle cx="250" cy="88" r="7" {...s} />
+      <path d="M250 88l-31 68" {...s} />
+      <path d="M219 156l-9 11 9 8 9-11" {...s} />
+      <circle cx="250" cy="88" r="2" {...s} opacity="0.6" />
+
+      {/* sleeves on the wall */}
+      <rect x="238" y="206" width="46" height="58" rx="2" {...s} opacity="0.55" />
+      <rect x="246" y="214" width="30" height="30" rx="1" {...s} opacity="0.35" />
+      <path d="M246 254h30" {...s} opacity="0.35" />
+      <rect x="238" y="272" width="46" height="58" rx="2" {...s} opacity="0.35" />
+      <path d="M246 292h30M246 300h20" {...s} opacity="0.3" />
+
+      {/* music notes */}
+      <g {...accent} opacity="0.85">
+        <path d="M84 82V52l24-6v30" />
+        <ellipse cx="78" cy="84" rx="7" ry="5" />
+        <ellipse cx="102" cy="78" rx="7" ry="5" />
+      </g>
+
+      {/* counter and registration ticks */}
+      <path d="M40 366h240" {...s} opacity="0.25" />
+      <path d="M64 348h74" {...s} opacity="0.35" />
+      <path d="M36 110V88h22M284 88v22M36 310v22h22" {...s} opacity="0.3" />
+    </svg>
+  )
+}
+
 function Road() {
   return (
     <svg viewBox="0 0 320 400" aria-hidden="true" focusable="false">
@@ -140,6 +187,7 @@ const art = {
   receipt: Receipt,
   cards: Cards,
   roster: Roster,
+  records: Records,
   road: Road,
 }
 

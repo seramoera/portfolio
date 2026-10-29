@@ -38,7 +38,7 @@ export default function About() {
                 <div>
                   <h3>The short version</h3>
                   <p>
-                    I&apos;m a third-year Computer Science student at Holy Angel
+                    I&apos;m an undergraduate Computer Science student at Holy Angel
                     University, currently on the Dean&apos;s List. Most of what I
                     know comes from building things that had to work for someone
                     else: a trading ledger that has to stay readable on a phone at
@@ -82,11 +82,10 @@ export default function About() {
                 Currently learning
               </span>
               <p>
-                <strong>Game development</strong> — Godot 4 and GDScript. Small
-                systems, a loop worth repeating, and more writing than I expected.
-                <span className="about__currently-link">
-                  Jeep Box Hero is where it is going.
-                </span>
+                <strong>Game development</strong> — Unity with C++ and C#. I am
+                learning the engine and scripting workflow for future game
+                projects, with a focus on gameplay systems and small, finished
+                loops.
               </p>
             </Reveal>
 
@@ -141,7 +140,7 @@ export default function About() {
                   </div>
                   <div>
                     <dt>Currently</dt>
-                    <dd>Game development · Godot</dd>
+                    <dd>Game development · Unity</dd>
                   </div>
                 </dl>
               </div>

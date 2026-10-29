@@ -2354,6 +2354,26 @@ html.is-booting {
   transform: translate(2px, -2px);
 }
 
+.work__links .is-pending {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0 0 0.18rem;
+  border-bottom: 1px dotted var(--line);
+  font-family: var(--mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: default;
+}
+
+.work__links .is-pending::after {
+  content: '· soon';
+  color: var(--accent);
+  letter-spacing: 0.08em;
+}
+
 .work__file {
   margin-left: auto;
   font-size: 0.46rem;
@@ -2470,6 +2490,22 @@ html.is-booting {
   text-transform: uppercase;
   color: var(--muted);
   white-space: nowrap;
+}
+
+@media (min-width: 561px) {
+  .ticket[open] .ticket__action-text {
+    display: none;
+  }
+
+  .ticket[open] .ticket__action::before {
+    content: 'Close file';
+    font-family: var(--mono);
+    font-size: 0.46rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
 }
 
 .ticket__toggle {
@@ -2934,6 +2970,18 @@ html.is-booting {
   color: var(--screen-ink);
   opacity: 0.86;
   filter: drop-shadow(0 0 10px rgba(255, 210, 176, 0.14));
+}
+
+.tv__art .record-disc {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: record-spin 18s linear infinite;
+}
+
+@keyframes record-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .tv__osd {
@@ -5132,9 +5180,10 @@ html.is-booting {
   border-top: 1px dashed rgba(242, 238, 228, 0.18);
 }
 
-.bbs__channels a {
+.bbs__channels a,
+.bbs__channels .bbs__ch-pending {
   display: grid;
-  grid-template-columns: 1.4rem minmax(0, 1fr) minmax(1rem, 4rem) 0.7rem;
+  grid-template-columns: 1.4rem minmax(0, 1fr) minmax(1rem, 4rem) auto;
   align-items: center;
   gap: 0.6rem;
   padding: 0.62rem 0;
@@ -5146,6 +5195,18 @@ html.is-booting {
   transition:
     color 0.22s var(--ease),
     padding 0.22s var(--ease);
+}
+
+.bbs__channels .bbs__ch-pending {
+  color: rgba(242, 238, 228, 0.52);
+  cursor: default;
+}
+
+.bbs__ch-soon {
+  font-size: 0.4rem;
+  letter-spacing: 0.1em;
+  color: var(--accent-2);
+  white-space: nowrap;
 }
 
 .bbs__channels a svg {
@@ -6298,7 +6359,8 @@ html.is-booting {
     font-size: 0.4rem;
   }
 
-  .bbs__channels a {
+  .bbs__channels a,
+  .bbs__channels .bbs__ch-pending {
     font-size: 0.52rem;
   }
 
@@ -6417,7 +6479,8 @@ html.is-booting {
   .hero__cursor,
   .cart__cursor,
   .boot__cursor,
-  .menu__hint i {
+  .menu__hint i,
+  .tv__art .record-disc {
     animation: none !important;
   }
 

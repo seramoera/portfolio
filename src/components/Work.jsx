@@ -112,12 +112,27 @@ export default function Work() {
               </ul>
 
               <div className="work__links">
-                {project.links.map((link) => (
-                  <a key={link.label} href={link.href}>
-                    {link.label}
-                    <ArrowUpRight />
-                  </a>
-                ))}
+                {project.links.map((link) =>
+                  link.href === '#' ? (
+                    <span key={link.label} className="is-pending">
+                      {link.label}
+                    </span>
+                  ) : (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target={
+                        link.href.startsWith('http') ? '_blank' : undefined
+                      }
+                      rel={
+                        link.href.startsWith('http') ? 'noreferrer' : undefined
+                      }
+                    >
+                      {link.label}
+                      <ArrowUpRight />
+                    </a>
+                  )
+                )}
                 <span className="work__file label">
                   FILE {project.num} / {String(count).padStart(2, '0')}
                 </span>

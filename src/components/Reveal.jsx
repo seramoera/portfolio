@@ -35,12 +35,17 @@ export default function Reveal({
           }
         }
       },
-      { rootMargin: '0px 0px -8% 0px', threshold: 0.08 }
+      {
+        rootMargin: '0px 0px -8% 0px',
+        // A clip reveal starts fully clipped, so its intersection area is
+        // zero until it is unclipped. Threshold 0 still fires for it.
+        threshold: variant === 'clip' ? 0 : 0.08,
+      }
     )
 
     io.observe(el)
     return () => io.disconnect()
-  }, [])
+  }, [variant])
 
   return (
     <Tag

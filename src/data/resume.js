@@ -1,8 +1,8 @@
 // ---------------------------------------------------------------------------
-// Résumé + internship brief.
+// Résumé + OJT brief.
 //
-// TODO: confirm the practicum hours and the availability window with the OJT
-// office, then replace public/Jasmine-Magtanong-Resume.pdf with the real file.
+// TODO: confirm the OJT hours and the availability window with the OJT office,
+// then replace public/Jasmine-Magtanong-Resume.pdf with the real file.
 // ---------------------------------------------------------------------------
 
 export const resume = {
@@ -10,15 +10,15 @@ export const resume = {
   updated: 'October 2026',
   pages: '1 page',
   summary:
-    'The short version: a CS undergraduate who builds web and mobile software, cares about whether it holds up, and is looking for a team to learn from for a required practicum.',
+    'The short version: a CS undergraduate who builds web and mobile software, cares about whether it holds up, and is looking for a team to learn from for a required OJT.',
   seeking: [
     {
       label: 'Role',
-      value: 'Frontend, mobile, QA, or security-adjacent internship',
+      value: 'Frontend, mobile, QA, or backend OJT',
     },
     {
       label: 'Arrangement',
-      value: 'Required practicum · school credit',
+      value: 'Required OJT · school credit',
     },
     {
       label: 'Window',
@@ -40,7 +40,7 @@ export const resume = {
     },
     {
       label: 'Currently learning',
-      value: 'Game development — Godot 4 and GDScript',
+      value: 'Game development — Unity with C++ and C#',
     },
   ],
 }
