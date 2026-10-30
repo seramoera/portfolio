@@ -1,12 +1,13 @@
 // ---------------------------------------------------------------------------
 // Résumé + OJT brief.
 //
-// TODO: confirm the OJT hours and the availability window with the OJT office,
-// then replace public/Jasmine-Magtanong-Resume.pdf with the real file.
+// The downloadable PDF is the supplied one-page CV. If it is replaced again,
+// keep the filename and update `updated` plus the preview in Resume.jsx.
+// TODO: confirm the OJT hours and the availability window with the OJT office.
 // ---------------------------------------------------------------------------
 
 export const resume = {
-  href: '/Jasmine-Magtanong-Resume.pdf',
+  href: `${import.meta.env.BASE_URL}Jasmine-Magtanong-Resume.pdf`,
   updated: 'October 2026',
   pages: '1 page',
   summary:

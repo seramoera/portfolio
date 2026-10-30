@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { playSfx } from '../audio/sfx.js'
 import { site } from '../data/projects.js'
 import { resume } from '../data/resume.js'
 import { ArrowUpRight, Download } from './Icons.jsx'
@@ -19,6 +20,13 @@ const links = [
 export default function Menu({ open, onClose, current }) {
   const closeRef = useRef(null)
   const panelRef = useRef(null)
+
+  useEffect(() => {
+    if (!open) return
+
+    playSfx('menu-open')
+    return () => playSfx('menu-close')
+  }, [open])
 
   useEffect(() => {
     if (!open) return

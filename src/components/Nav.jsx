@@ -4,6 +4,7 @@ import { Download } from './Icons.jsx'
 import Magnetic from './Magnetic.jsx'
 import Menu from './Menu.jsx'
 import RollingText from './RollingText.jsx'
+import SoundToggle from './SoundToggle.jsx'
 
 const links = [
   { href: '#work', label: 'Work' },
@@ -78,7 +79,7 @@ export default function Nav() {
   return (
     <>
       <header className={`nav${scrolled ? ' is-scrolled' : ''}`} ref={ref}>
-        <a className="nav__brand" href="#top" aria-label="Jasmine Magtanong, back to top">
+        <a className="nav__brand" href="#top">
           <span className="nav__badge" aria-hidden="true">
             JFM<span>64</span>
           </span>
@@ -109,6 +110,8 @@ export default function Nav() {
           <span className="nav__page" aria-hidden="true">
             P.{String(page).padStart(2, '0')}<i>/06</i>
           </span>
+
+          <SoundToggle />
 
           <Magnetic className="nav__cta-wrap">
             <a

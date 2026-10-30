@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { playSfx } from '../audio/sfx.js'
 import { site } from '../data/projects.js'
 import { resume } from '../data/resume.js'
 import Magnetic from './Magnetic.jsx'
@@ -16,6 +17,7 @@ export default function Contact() {
   const copyEmail = async () => {
     try {
       await navigator.clipboard.writeText(site.email)
+      playSfx('copy')
       setCopied(true)
       clearTimeout(timer.current)
       timer.current = window.setTimeout(() => setCopied(false), 2200)

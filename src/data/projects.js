@@ -27,7 +27,12 @@ export const projects = [
     detail:
       'Reads the receipt image, validates its structure against the format GCash actually produces, and flags the small inconsistencies that editing software leaves behind.',
     stack: ['Flutter', 'Python', 'OCR'],
-    links: [{ label: 'Code', href: '#' }],
+    links: [
+      {
+        label: 'Code',
+        href: 'https://github.com/shokomori/vivy-fraud-detection',
+      },
+    ],
     art: 'receipt',
     caseStudy: {
       lede:
@@ -78,8 +83,14 @@ export const projects = [
       'Built to work on a phone at the card table and on a desktop the night before a trade, so a deal can be rebuilt from the ledger instead of from scattered chat messages.',
     stack: ['React', 'JavaScript', 'CSS'],
     links: [
-      { label: 'Live site', href: '#' },
-      { label: 'Code', href: '#' },
+      {
+        label: 'Live site',
+        href: 'https://seramoera.github.io/cardbound-trading-ledger/',
+      },
+      {
+        label: 'Code',
+        href: 'https://github.com/seramoera/cardbound-trading-ledger',
+      },
     ],
     art: 'cards',
     caseStudy: {
@@ -115,53 +126,8 @@ export const projects = [
     },
   },
   {
-    id: 'glide',
-    num: '03',
-    title: 'Glide',
-    category: 'Mobile · Product',
-    year: '2025',
-    summary:
-      'A join-first membership app for students: find an organisation, request to join, pay the one-time fee, and see its announcements once you are in.',
-    detail:
-      'Students join once and get the group page; admins get a separate login with the member count, the roster, and a remove action. No attendance tracking, no payment ledger beyond the one-time fee.',
-    stack: ['Flutter', 'Dart', 'Firebase'],
-    links: [{ label: 'Code', href: '#' }],
-    art: 'roster',
-    caseStudy: {
-      lede:
-        'The first question a student asks is not what the admin needs. It is how to join, what the fee is, and where the announcements will be.',
-      meta: [
-        { label: 'Role', value: 'Design + build' },
-        { label: 'Timeline', value: '2025' },
-        { label: 'Status', value: 'In use' },
-      ],
-      blocks: [
-        {
-          label: 'The problem',
-          body:
-            'Sign-up lived in group chats, printed forms, and a treasurer’s spreadsheet. Students had to ask which step came next, and admins had to reconcile names and one-time payments by hand.',
-        },
-        {
-          label: 'The build',
-          body:
-            'A Flutter app backed by Firebase. The student side is a short join flow: choose an org, confirm the one-time fee, and land on the group page for announcements. The admin side is a separate login with a live member count, the member list, and a remove action.',
-        },
-        {
-          label: 'The decision',
-          body:
-            'The join flow is deliberately short because a student makes the decision once. The admin roster is deliberately narrow: see the count, see who is in, remove a member. It is not an attendance tool, a payment ledger, or a general org CMS.',
-        },
-        {
-          label: 'What it misses',
-          body:
-            'Announcements are pull-only right now; there are no push notifications yet. Bulk imports and payment reconciliation are out of scope, because the app is for students joining and for the admin roster, not for running every part of the organisation.',
-        },
-      ],
-    },
-  },
-  {
     id: 'jeep-box-hero',
-    num: '04',
+    num: '03',
     title: 'Jeep Box Hero',
     category: 'Game · Music',
     year: '2025',
@@ -170,7 +136,12 @@ export const projects = [
     detail:
       'Built the visual direction and the customer-facing flow: the shop, the record wall, and the moment a customer finds the right sleeve. The catalogue spans multiple OPM genres, so the clue is often in what they remember about the music.',
     stack: ['Godot', 'Aseprite'],
-    links: [{ label: 'Playable build', href: '#' }],
+    links: [
+      {
+        label: 'Code',
+        href: 'https://github.com/seramoera/jeep-box-hero',
+      },
+    ],
     art: 'records',
     caseStudy: {
       lede:
@@ -211,11 +182,16 @@ export const site = {
   role: 'CS undergraduate · Holy Angel University',
   location: 'Pampanga, Philippines',
   email: 'jasminemagtanong04@gmail.com',
-  // TODO: create these and replace the hashes.
   links: [
-    { label: 'GitHub', href: '#' },
-    { label: 'LinkedIn', href: '#' },
-    { label: 'Facebook', href: 'https://facebook.com/jasmine.magtanong.5' },
+    { label: 'GitHub', href: 'https://github.com/seramoera' },
+    {
+      label: 'LinkedIn',
+      href: 'https://www.linkedin.com/in/jasmine-magtanong-b4442838b',
+    },
+    {
+      label: 'Facebook',
+      href: 'https://www.facebook.com/jasmine.magtanong.5/',
+    },
   ],
   availability: 'Open to OJT · 2026',
 }

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { playSfx } from '../audio/sfx.js'
 import ProjectArt from './ProjectArt.jsx'
 import { ArrowLeft, ArrowRight } from './Icons.jsx'
 
@@ -9,6 +10,7 @@ import { ArrowLeft, ArrowRight } from './Icons.jsx'
  */
 export default function CrtTv({ projects, active, onChange }) {
   const caseRef = useRef(null)
+  const lastActive = useRef(active)
   const [powered, setPowered] = useState(false)
   const [switching, setSwitching] = useState(false)
 
@@ -31,6 +33,7 @@ export default function CrtTv({ projects, active, onChange }) {
         for (const entry of entries) {
           if (entry.isIntersecting) {
             setPowered(true)
+            playSfx('tv-on')
             io.disconnect()
           }
         }
@@ -44,6 +47,12 @@ export default function CrtTv({ projects, active, onChange }) {
   // Static between channels.
   useEffect(() => {
     if (!powered || reduced()) return
+
+    if (lastActive.current !== active) {
+      lastActive.current = active
+      playSfx('channel')
+    }
+
     setSwitching(true)
     const timer = setTimeout(() => setSwitching(false), 460)
     return () => clearTimeout(timer)

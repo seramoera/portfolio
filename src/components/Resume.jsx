@@ -99,19 +99,14 @@ export default function Resume() {
           </Reveal>
 
           <Reveal className="sheet-wrap" variant="right" delay={100}>
-            <a
-              className="sheet"
-              href={resume.href}
-              download
-              aria-label="Download Jasmine Magtanong's résumé as a one-page PDF"
-            >
+            <div className="sheet" aria-hidden="true">
               <span className="sheet__holes sheet__holes--l" aria-hidden="true" />
               <span className="sheet__holes sheet__holes--r" aria-hidden="true" />
 
               <div className="sheet__head" aria-hidden="true">
                 <span className="sheet__tag">CURRICULUM VITAE / 2026</span>
                 <h3>Jasmine F. Magtanong</h3>
-                <p>CS undergraduate · web, mobile &amp; verification</p>
+                <p>UX designer / frontend developer</p>
                 <span className="sheet__contact">
                   jasminemagtanong04@gmail.com · Pampanga, PH · GitHub / LinkedIn
                 </span>
@@ -142,10 +137,6 @@ export default function Resume() {
                     <span>2025</span>
                   </div>
                   <div className="sheet__row">
-                    <span>Glide — org join + announcements (Flutter, Firebase)</span>
-                    <span>2025</span>
-                  </div>
-                  <div className="sheet__row">
                     <span>Jeep Box Hero — OPM record-store game (Godot)</span>
                     <span>2025</span>
                   </div>
@@ -154,8 +145,8 @@ export default function Resume() {
                 <section className="sheet__sec">
                   <h4>Skills</h4>
                   <p className="sheet__line">
-                    JavaScript · Python · Java · C++ · C# · Dart · SQL · React ·
-                    Flutter · Firebase · Supabase · Git · Figma
+                    JavaScript · Python · Java · Dart · C++ · C# · HTML5 · React ·
+                    Next.js · Node.js · Supabase
                   </p>
                 </section>
 
@@ -185,11 +176,11 @@ export default function Resume() {
               <span className="sheet__stamp" aria-hidden="true">
                 PDF
               </span>
-            </a>
+            </div>
 
             <span className="sheet__caption label">
               <span>Preview / 01</span>
-              <span>Click the sheet to download</span>
+              <span>One page · print ready</span>
             </span>
           </Reveal>
         </div>

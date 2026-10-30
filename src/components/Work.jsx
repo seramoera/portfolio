@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { playSfx } from '../audio/sfx.js'
 import { projects } from '../data/projects.js'
 import Barcode from './Barcode.jsx'
 import CrtTv from './CrtTv.jsx'
@@ -58,8 +59,8 @@ export default function Work() {
           </Reveal>
           <Reveal className="work__intro-copy" delay={90}>
             <p>
-              Four builds, each one a constraint I had to design around. Tune the
-              set, then open the case file for the decisions behind it.
+              Three builds, each one a constraint I had to design around. Tune
+              the set, then open the case file for the decisions behind it.
             </p>
             <span className="label work__intro-note">
               <i aria-hidden="true" />
@@ -139,7 +140,12 @@ export default function Work() {
               </div>
 
               {project.caseStudy ? (
-                <details className="ticket">
+                <details
+                  className="ticket"
+                  onToggle={(event) => {
+                    if (event.currentTarget.open) playSfx('ticket')
+                  }}
+                >
                   <summary className="ticket__summary">
                     <span className="ticket__badge">
                       CASE

@@ -27,10 +27,11 @@ npm run preview   # serve the production build locally
 
 | File | What it controls |
 |---|---|
-| `src/data/projects.js` | The four work channels, the CRT art, the case-study copy, `site` (email and social links). |
+| `src/data/projects.js` | The three work channels, the CRT art, the case-study copy, `site` (email and social links). |
 | `src/data/credentials.js` | Skill cartridges, the “currently learning” card, and certifications. |
 | `src/data/notes.js` | The field notes and their expanded tickets. |
 | `src/data/resume.js` | Education, experience, availability, the résumé sheet copy, and the PDF download path. |
+| `src/audio/sfx.js` | Synthesized interface sounds and the persisted mute preference. |
 
 The visual layer is split in two:
 
@@ -48,27 +49,32 @@ C64 blue `#3d3acb` for the boot screen.
 These are intentionally visible and safe to leave until the real material is
 ready:
 
-1. **Project links** — a link with `href: '#'` renders as a non-clickable
-   `· soon` label in `Work.jsx` instead of a dead link. Add real live/repo URLs
-   in `src/data/projects.js`.
-2. **Social links** — GitHub and LinkedIn with `href: '#'` render as “soon” in
-   the contact terminal. Fill in the real URLs in `site.links`.
-3. **Certifications** — the titles and issuers in `credentials.js` are the
+1. **Certifications** — the titles and issuers in `credentials.js` are the
    current list. Add years and credential URLs, and remove anything unfinished.
-4. **Résumé PDF** — `public/Jasmine-Magtanong-Resume.pdf` is a clean one-page
-   draft. Replace it with the final PDF when the copy is confirmed. The
-   download path is `resume.href` in `src/data/resume.js`.
-5. **Project screenshots** — the CRT currently uses drawn art from
+2. **Project screenshots** — the CRT currently uses drawn art from
    `ProjectArt.jsx`. To use real screenshots, add `image: './shots/name.png'` to
    a project and render an `<img>` inside `CrtTv.jsx`; keep images around
    1600px wide and under ~300 KB.
 
-## Opening sequence and navigation
+Project links, social links, and the downloadable CV are already filled in.
+A link with `href: '#'` still renders as a non-clickable `· soon` label rather
+than a dead link; the real URLs live in `src/data/projects.js` and `site.links`.
 
-`BootSequence.jsx` shows a three-second cold boot once per browser session,
-stores `jfm-boot-2026` in `sessionStorage`, and skips itself when the visitor
-prefers reduced motion. It can be skipped with any key or pointer, or bypassed
-entirely with `?noboot`. The page is marked `inert` while the boot plays.
+## Opening sequence, sound, and navigation
+
+`BootSequence.jsx` opens on a power-on gate because browsers block audio until a
+gesture. Pressing a key or clicking runs a three-second cold boot with its own
+synthesized soundtrack, stores `jfm-boot-2026` in `sessionStorage`, and skips
+itself when the visitor prefers reduced motion. It can be skipped with any key
+or pointer, or bypassed entirely with `?noboot`. The page is marked `inert`
+while the boot plays.
+
+`src/audio/sfx.js` synthesizes every cue with the Web Audio API: no audio files
+and no library. The boot, shutdown, CRT power-on, channel change, menu, ticket,
+copy, and toggle sounds all come from oscillators and a short noise buffer.
+Sound is on by default, persists in `localStorage` under `jfm-sfx-2026`, and can
+be muted from the boot gate or the SFX switch in the nav. The boot gate and nav
+share one preference.
 
 `Menu.jsx` is the full-screen channel menu below 980px. It traps Tab, closes on
 Escape or a link, restores focus to the Menu button, and locks body scroll.
@@ -87,6 +93,8 @@ section reveals. The heavier pieces are small and isolated:
 - `Marquee.jsx` — the scrolling station ident, with a scroll-velocity skew.
 - `Cursor.jsx` / `Magnetic.jsx` / `Tilt.jsx` — pointer-only polish.
 - `DecodeText.jsx` — the short label scramble used in section heads.
+- `audio/sfx.js` — oscillator and noise cues built at runtime. No audio files
+  are downloaded, and nothing plays until the visitor powers the machine on.
 
 All of it is cancelled by `prefers-reduced-motion: reduce`. The boot, reveals,
 ticker, and ASCII still frame are all covered. Touch devices get the content
@@ -109,6 +117,8 @@ same `dist/` works on Cloudflare Pages, Vercel, GitHub Pages, or a custom domain
   work without JavaScript and are keyboard-operable.
 - `prefers-reduced-motion` removes the boot, reveals, ticker movement, cursor
   effects, and ASCII drift; the hero draws one still frame instead.
+- Sound never autoplays: the boot gate is the first gesture, and the SFX switch
+  is a real `aria-pressed` button whose preference persists.
 - Visible focus rings use the orange signal colour. Small orange text uses the
   darker `--accent-ink` so it keeps contrast on cream paper.
 - The custom cursor is decorative; the native cursor remains available.

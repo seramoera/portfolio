@@ -1,3 +1,4 @@
+import { playSfx } from '../audio/sfx.js'
 import { notes } from '../data/notes.js'
 import Barcode from './Barcode.jsx'
 import Reveal from './Reveal.jsx'
@@ -38,7 +39,12 @@ export default function Notes() {
         <div className="ntickets">
           {notes.map((note, index) => (
             <Reveal key={note.id} delay={index * 70} variant="up">
-              <details className="nticket">
+              <details
+                className="nticket"
+                onToggle={(event) => {
+                  if (event.currentTarget.open) playSfx('ticket')
+                }}
+              >
                 <summary className="nticket__summary">
                   <span className="nticket__stub">
                     <span className="nticket__serial">{note.num}</span>
