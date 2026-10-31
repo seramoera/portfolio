@@ -5,6 +5,7 @@ import Magnetic from './Magnetic.jsx'
 import Menu from './Menu.jsx'
 import RollingText from './RollingText.jsx'
 import SoundToggle from './SoundToggle.jsx'
+import ThemeToggle from './ThemeToggle.jsx'
 
 const links = [
   { href: '#work', label: 'Work' },
@@ -112,6 +113,8 @@ export default function Nav() {
           </span>
 
           <SoundToggle />
+
+          <ThemeToggle />
 
           <Magnetic className="nav__cta-wrap">
             <a

@@ -10,6 +10,33 @@
     />
     <meta name="theme-color" content="#f2eee4" />
 
+    <script>
+      // Set the colour theme before the first paint: stored choice first, then
+      // the system preference. Kept inline so there is no flash of cream.
+      ;(function () {
+        try {
+          var key = 'jfm-theme-2026'
+          var stored = window.localStorage.getItem(key)
+          var theme =
+            stored === 'dark' || stored === 'light'
+              ? stored
+              : window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark'
+                : 'light'
+
+          document.documentElement.dataset.theme = theme
+          document.documentElement.style.colorScheme = theme
+
+          var meta = document.querySelector('meta[name="theme-color"]')
+          if (meta) {
+            meta.setAttribute('content', theme === 'dark' ? '#0d0f14' : '#f2eee4')
+          }
+        } catch (error) {
+          document.documentElement.dataset.theme = 'light'
+        }
+      })()
+    </script>
+
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Jasmine F. Magtanong — CS Student & Builder" />
     <meta

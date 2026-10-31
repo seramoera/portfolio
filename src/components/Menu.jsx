@@ -3,6 +3,7 @@ import { playSfx } from '../audio/sfx.js'
 import { site } from '../data/projects.js'
 import { resume } from '../data/resume.js'
 import { ArrowUpRight, Download } from './Icons.jsx'
+import ThemeToggle from './ThemeToggle.jsx'
 
 const links = [
   { href: '#work', label: 'Work', note: 'Selected builds' },
@@ -130,6 +131,10 @@ export default function Menu({ open, onClose, current }) {
             <a href={resume.href} download>
               Résumé · PDF <Download />
             </a>
+          </div>
+          <div className="menu__appearance">
+            <span className="label">Appearance</span>
+            <ThemeToggle variant="menu" />
           </div>
           <p className="menu__hint">
             <span aria-hidden="true">C:\&gt;</span> select a channel

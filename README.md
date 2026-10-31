@@ -6,7 +6,9 @@ with React, Vite, and plain CSS: no UI library and no animation dependency.
 The design is a cream-paper editorial layout with a retro terminal underneath:
 a Commodore-style cold boot, a CRT project set, ASCII noise bands, dotted rails,
 phosphor-green hardware details, and orange signal accents. Every section has
-its own layout, and expanded case studies open as paper tickets.
+its own layout, and expanded case studies open as paper tickets. A dark edition
+keeps the same typography and structure on a near-black field; the boot screen,
+CRT set, BBS contact panel, and footer stay dark in both editions.
 
 ## Run it
 
@@ -32,6 +34,7 @@ npm run preview   # serve the production build locally
 | `src/data/notes.js` | The field notes and their expanded tickets. |
 | `src/data/resume.js` | Education, experience, availability, the résumé sheet copy, and the PDF download path. |
 | `src/audio/sfx.js` | Synthesized interface sounds and the persisted mute preference. |
+| `src/theme/theme.js` | Light/dark preference, persistence, system-preference fallback, and change events. |
 
 The visual layer is split in two:
 
@@ -40,9 +43,10 @@ The visual layer is split in two:
   after `global.css` and overrides the palette, typography, and section styling.
   Change tokens at the top of this file first.
 
-Fonts are Instrument Sans, JetBrains Mono, and VT323. The main palette is cream
-`#f2eee4`, ink `#16181d`, signal orange `#e4552b`, phosphor acid `#c7f464`, and
-C64 blue `#3d3acb` for the boot screen.
+Fonts are Instrument Sans, JetBrains Mono, and VT323. The default light palette
+is cream `#f2eee4`, ink `#16181d`, signal orange `#e4552b`, phosphor acid
+`#c7f464`, and C64 blue `#3d3acb` for the boot screen. The dark palette overrides
+the same tokens under `html[data-theme='dark']` near the top of `edition.css`.
 
 ## Placeholders before publishing
 
@@ -60,7 +64,16 @@ Project links, social links, and the downloadable CV are already filled in.
 A link with `href: '#'` still renders as a non-clickable `· soon` label rather
 than a dead link; the real URLs live in `src/data/projects.js` and `site.links`.
 
-## Opening sequence, sound, and navigation
+## Light, dark, and sound
+
+The theme follows the operating system until someone chooses. The Sun/Moon
+switch in the nav pins light or dark, and the full-screen channel menu repeats
+the choice as an explicit Light / Dark pair under **Appearance**. The choice is
+stored in `localStorage` under `jfm-theme-2026`, so it survives reloads; until
+then, a system change is picked up live. `index.html` applies the stored (or
+system) theme inline before the first paint, which avoids a flash of the wrong
+edition. `src/theme/theme.js` owns the state and emits `jfm:theme` so every
+toggle stays in sync.
 
 `BootSequence.jsx` opens on a power-on gate because browsers block audio until a
 gesture. Pressing a key or clicking runs a three-second cold boot with its own
@@ -119,6 +132,9 @@ same `dist/` works on Cloudflare Pages, Vercel, GitHub Pages, or a custom domain
   effects, and ASCII drift; the hero draws one still frame instead.
 - Sound never autoplays: the boot gate is the first gesture, and the SFX switch
   is a real `aria-pressed` button whose preference persists.
+- The theme switch is also a real `aria-pressed` button with a name that states
+  the current mode; the menu pair uses `aria-pressed` inside a labelled group.
 - Visible focus rings use the orange signal colour. Small orange text uses the
-  darker `--accent-ink` so it keeps contrast on cream paper.
+  darker `--accent-ink` so it keeps contrast on cream paper, and its dark-mode
+  value is lightened for the dark field.
 - The custom cursor is decorative; the native cursor remains available.
