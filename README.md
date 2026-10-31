@@ -52,22 +52,6 @@ is cream `#f2eee4`, ink `#16181d`, signal orange `#e4552b`, phosphor acid
 `#c7f464`, and C64 blue `#3d3acb` for the boot screen. The dark palette overrides
 the same tokens under `html[data-theme='dark']` near the top of `edition.css`.
 
-## Placeholders before publishing
-
-These are intentionally visible and safe to leave until the real material is
-ready:
-
-1. **Certifications** — the titles and issuers in `credentials.js` are the
-   current list. Add years and credential URLs, and remove anything unfinished.
-2. **Project screenshots** — the CRT currently uses drawn art from
-   `ProjectArt.jsx`. To use real screenshots, add `image: './shots/name.png'` to
-   a project and render an `<img>` inside `CrtTv.jsx`; keep images around
-   1600px wide and under ~300 KB.
-
-Project links, social links, and the downloadable CV are already filled in.
-A link with `href: '#'` still renders as a non-clickable `· soon` label rather
-than a dead link; the real URLs live in `src/data/projects.js` and `site.links`.
-
 ## Light, dark, and sound
 
 The theme follows the operating system until someone chooses. The Sun/Moon
