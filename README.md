@@ -10,6 +10,10 @@ its own layout, and expanded case studies open as paper tickets. A dark edition
 keeps the same typography and structure on a near-black field; the boot screen,
 CRT set, BBS contact panel, and footer stay dark in both editions.
 
+## Live site
+
+<https://seramoera.github.io/portfolio/>
+
 ## Run it
 
 ```bash
@@ -121,7 +125,9 @@ same `dist/` works on Cloudflare Pages, Vercel, GitHub Pages, or a custom domain
 - **Cloudflare Pages** — connect the repo, build `npm run build`, output `dist`.
   `public/_redirects` is already included for single-page routing.
 - **Vercel** — import the repo, use the Vite preset, output `dist`.
-- **GitHub Pages** — build, then publish `dist/` to `gh-pages`.
+- **GitHub Pages** — `.github/workflows/deploy.yml` builds and publishes `dist/`
+  on every push to `main`, using the Pages artifact workflow. The repo must be
+  public and Pages set to source **GitHub Actions**.
 
 ## Accessibility notes
 
