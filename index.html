@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,21 +8,16 @@
       name="description"
       content="Portfolio of Jasmine F. Magtanong, a computer science undergraduate at Holy Angel University building web and mobile software with an eye for security and interface design."
     />
-    <meta name="theme-color" content="#f2eee4" />
+    <meta name="theme-color" content="#0d0f14" />
 
     <script>
-      // Set the colour theme before the first paint: stored choice first, then
-      // the system preference. Kept inline so there is no flash of cream.
+      // Set the colour theme before the first paint: a stored choice first,
+      // otherwise the dark edition. Kept inline so there is no flash of cream.
       ;(function () {
         try {
           var key = 'jfm-theme-2026'
           var stored = window.localStorage.getItem(key)
-          var theme =
-            stored === 'dark' || stored === 'light'
-              ? stored
-              : window.matchMedia('(prefers-color-scheme: dark)').matches
-                ? 'dark'
-                : 'light'
+          var theme = stored === 'dark' || stored === 'light' ? stored : 'dark'
 
           document.documentElement.dataset.theme = theme
           document.documentElement.style.colorScheme = theme

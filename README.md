@@ -38,7 +38,7 @@ npm run preview   # serve the production build locally
 | `src/data/notes.js` | The field notes and their expanded tickets. |
 | `src/data/resume.js` | Education, experience, availability, the résumé sheet copy, and the PDF download path. |
 | `src/audio/sfx.js` | Synthesized interface sounds and the persisted mute preference. |
-| `src/theme/theme.js` | Light/dark preference, persistence, system-preference fallback, and change events. |
+| `src/theme/theme.js` | Light/dark preference, the dark default, persistence, and change events. |
 
 The visual layer is split in two:
 
@@ -54,14 +54,13 @@ the same tokens under `html[data-theme='dark']` near the top of `edition.css`.
 
 ## Light, dark, and sound
 
-The theme follows the operating system until someone chooses. The Sun/Moon
-switch in the nav pins light or dark, and the full-screen channel menu repeats
-the choice as an explicit Light / Dark pair under **Appearance**. The choice is
-stored in `localStorage` under `jfm-theme-2026`, so it survives reloads; until
-then, a system change is picked up live. `index.html` applies the stored (or
-system) theme inline before the first paint, which avoids a flash of the wrong
-edition. `src/theme/theme.js` owns the state and emits `jfm:theme` so every
-toggle stays in sync.
+A first visit opens on the dark edition. The Sun/Moon switch in the nav pins
+light or dark, and the full-screen channel menu repeats the choice as an
+explicit Light / Dark pair under **Appearance**. The choice is stored in
+`localStorage` under `jfm-theme-2026`, so it survives reloads. `index.html`
+applies the stored (or default dark) theme inline before the first paint, which
+avoids a flash of the wrong edition. `src/theme/theme.js` owns the state and
+emits `jfm:theme` so every toggle stays in sync.
 
 `BootSequence.jsx` opens on a power-on gate because browsers block audio until a
 gesture. Pressing a key or clicking runs a three-second cold boot with its own

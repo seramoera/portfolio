@@ -1,22 +1,13 @@
 // ---------------------------------------------------------------------------
-// Colour theme preference. The light edition is the default; a visitor can
-// pin either theme from the nav or the menu, and the choice survives reloads.
-// Until someone picks, the system preference is followed live.
+// Colour theme preference. A first visit opens on the dark edition; a visitor
+// can pin either theme from the nav or the menu, and the choice survives
+// reloads.
 // ---------------------------------------------------------------------------
 
 const KEY = 'jfm-theme-2026'
 const EVENT = 'jfm:theme'
 const THEMES = ['light', 'dark']
-
-let media = null
-let followingSystem = false
-
-function systemTheme() {
-  if (typeof window === 'undefined' || !window.matchMedia) return 'light'
-  return window.matchMedia('(prefers-color-scheme: dark)').matches
-    ? 'dark'
-    : 'light'
-}
+const DEFAULT = 'dark'
 
 function readStored() {
   if (typeof window === 'undefined') return null
@@ -53,15 +44,12 @@ function paint(theme) {
 }
 
 export function getTheme() {
-  if (typeof document === 'undefined') return 'light'
+  if (typeof document === 'undefined') return DEFAULT
   return document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light'
 }
 
 export function setTheme(next) {
   if (!THEMES.includes(next)) return
-
-  followingSystem = false
-  stopWatchingSystem()
 
   try {
     window.localStorage.setItem(KEY, next)
@@ -85,45 +73,18 @@ export function subscribeTheme(listener) {
   return () => window.removeEventListener(EVENT, onTheme)
 }
 
-function onSystemChange() {
-  if (!followingSystem) return
-
-  const next = systemTheme()
-  if (getTheme() !== next) {
-    paint(next)
-    emit(next)
-  }
-}
-
-function startWatchingSystem() {
-  if (!window.matchMedia || media) return
-
-  media = window.matchMedia('(prefers-color-scheme: dark)')
-  if (media.addEventListener) media.addEventListener('change', onSystemChange)
-}
-
-function stopWatchingSystem() {
-  if (!media) return
-  if (media.removeEventListener) media.removeEventListener('change', onSystemChange)
-  media = null
-}
-
 /**
- * Apply the stored choice (or the system preference) before the app mounts.
+ * Apply the stored choice (or the dark default) before the app mounts.
  * Called from main.jsx; index.html repeats the same decision inline so the
  * first paint never flashes the wrong theme.
  */
 export function initTheme() {
   if (typeof window === 'undefined') return
 
-  const stored = readStored()
-  const theme = stored ?? systemTheme()
-  followingSystem = stored === null
+  const theme = readStored() ?? DEFAULT
 
   // index.html has normally set this already; keep it in sync for dev/HMR.
   if (getTheme() !== theme || !document.documentElement.style.colorScheme) {
     paint(theme)
   }
-
-  if (followingSystem) startWatchingSystem()
 }
