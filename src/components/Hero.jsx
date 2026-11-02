@@ -41,8 +41,8 @@ export default function Hero() {
           <p className="hero__sub">
             I&apos;m <strong>Jasmine F. Magtanong</strong>, a computer science
             undergraduate at Holy Angel University. I build web and mobile
-            software, and I care as much about whether it holds up under
-            pressure as whether it looks right.
+            software. I care about how it looks, and about whether it holds up
+            once people start using it.
           </p>
 
           <div className="hero__actions">

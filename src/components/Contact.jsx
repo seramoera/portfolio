@@ -68,8 +68,9 @@ export default function Contact() {
               </h2>
 
               <p className="bbs__copy">
-                I&apos;m looking for a team to learn from for my required OJT —
-                frontend, mobile, QA, or backend work. Direct line is below.
+                I&apos;m looking for a team to learn from for my required OJT, in
+                frontend, mobile, QA, or backend work. Email is the fastest way to
+                reach me.
               </p>
 
               <Magnetic max={12} strength={0.16} className="bbs__magnet">

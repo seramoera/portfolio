@@ -12,7 +12,7 @@ export const skillGroups = [
   {
     id: 'languages',
     label: 'Languages',
-    note: 'Comfortable in, not just exposed to',
+    note: 'Used on real projects',
     items: [
       'JavaScript',
       'Python',
@@ -61,7 +61,7 @@ export const skillGroups = [
 export const learning = {
   title: 'Game development',
   detail:
-    'Unity with C++ and C#. I am learning the engine and scripting workflow for future game projects, with a focus on gameplay systems and small, finished loops.',
+    'Unity with C++ and C#. I am learning the engine and scripting workflow for future game projects, starting with gameplay systems and small, finished loops.',
   since: 'Since 2025',
 }
 

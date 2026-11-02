@@ -26,8 +26,8 @@ export default function About() {
 
             <Reveal className="about__lead" delay={80}>
               <p>
-                I like the point where a design decision turns into an engineering
-                constraint — and the work of making both of them{' '}
+                I like the point where a design decision becomes an engineering
+                constraint, and the work of making both{' '}
                 <em>hold together.</em>
               </p>
             </Reveal>
@@ -36,13 +36,13 @@ export default function About() {
               <Reveal className="about__entry" variant="left">
                 <span className="about__entry-num">01</span>
                 <div>
-                  <h3>The short version</h3>
+                  <h3>Background</h3>
                   <p>
                     I&apos;m an undergraduate Computer Science student at Holy Angel
                     University, currently on the Dean&apos;s List. Most of what I
                     know comes from building things that had to work for someone
-                    else: a trading ledger that has to stay readable on a phone at
-                    a card table, an org membership app that replaced a spreadsheet
+                    else. A trading ledger that stays readable on a phone at a
+                    card table. An org membership app that replaced a spreadsheet
                     three people were editing badly.
                   </p>
                 </div>
@@ -55,9 +55,9 @@ export default function About() {
                   <p>
                     My work sits between how an interface reads at a glance and
                     what happens when someone tries to fake their way through it.
-                    ViVy came from that second question: a seller holding a bag,
-                    a stranger holding up a screenshot, and a receipt that is only
-                    a picture of a transaction.
+                    ViVy came from that second question. A seller holding a bag,
+                    a stranger holding up a screenshot, a receipt that only shows
+                    a payment.
                   </p>
                 </div>
               </Reveal>
@@ -65,12 +65,12 @@ export default function About() {
               <Reveal className="about__entry" variant="left" delay={120}>
                 <span className="about__entry-num">03</span>
                 <div>
-                  <h3>AI on purpose</h3>
+                  <h3>Working with AI</h3>
                   <p>
-                    I work with AI deliberately rather than by default: writing
-                    prompts that narrow a problem, reading the output critically,
-                    and keeping only what survives a test. The tool is not the
-                    point — the judgement is.
+                    I use AI as a tool and check its output like anyone else&apos;s.
+                    I write prompts that narrow a problem, read the results
+                    critically, and keep what survives a test. The judgement stays
+                    with me.
                   </p>
                 </div>
               </Reveal>
@@ -84,7 +84,7 @@ export default function About() {
               <p>
                 <strong>Game development</strong> — Unity with C++ and C#. I am
                 learning the engine and scripting workflow for future game
-                projects, with a focus on gameplay systems and small, finished
+                projects, starting with gameplay systems and small, finished
                 loops.
               </p>
             </Reveal>

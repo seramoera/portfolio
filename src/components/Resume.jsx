@@ -23,7 +23,7 @@ export default function Resume() {
           <Reveal as="h2" id="resume-title" className="display" variant="clip">
             One page<span className="display__dot">.</span>
             <br />
-            <em>No filler.</em>
+            <em>Easy to skim.</em>
           </Reveal>
 
           <Reveal className="resume__intro-copy" delay={80}>
@@ -93,7 +93,7 @@ export default function Resume() {
               </div>
 
               <p className="seeking__note">
-                Full project notes live in the work section above.
+                Happy to walk through any of the projects in an interview.
               </p>
             </div>
           </Reveal>
@@ -134,6 +134,10 @@ export default function Resume() {
                   </div>
                   <div className="sheet__row">
                     <span>Cardbound — trading ledger (React, JavaScript)</span>
+                    <span>2025</span>
+                  </div>
+                  <div className="sheet__row">
+                    <span>Glide — org registration (Flutter, Firebase)</span>
                     <span>2025</span>
                   </div>
                   <div className="sheet__row">

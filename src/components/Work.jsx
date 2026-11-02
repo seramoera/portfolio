@@ -59,8 +59,8 @@ export default function Work() {
           </Reveal>
           <Reveal className="work__intro-copy" delay={90}>
             <p>
-              Three builds, each one a constraint I had to design around. Tune
-              the set, then open the case file for the decisions behind it.
+              Four builds, each one shaped by a constraint. Tune the set, then
+              read how each one was put together.
             </p>
             <span className="label work__intro-note">
               <i aria-hidden="true" />

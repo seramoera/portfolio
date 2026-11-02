@@ -25,8 +25,8 @@ export default function Notes() {
           </Reveal>
           <Reveal className="notes__intro-copy" delay={80}>
             <p>
-              Short write-ups about things I had to work out the hard way:
-              verification, admin tools, and designing for a phone in bad light.
+              Short write-ups about problems I had to work out the hard way.
+              Verification, admin tools, designing for a phone in bad light.
               Pull a ticket.
             </p>
             <span className="label notes__hint">

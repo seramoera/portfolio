@@ -11,7 +11,7 @@ export const resume = {
   updated: 'October 2026',
   pages: '1 page',
   summary:
-    'The short version: a CS undergraduate who builds web and mobile software, cares about whether it holds up, and is looking for a team to learn from for a required OJT.',
+    'A CS undergraduate who builds web and mobile software and wants to find out whether it holds up in a real team. I am looking for a required OJT placement where I can learn from people who have shipped more than I have.',
   seeking: [
     {
       label: 'Role',

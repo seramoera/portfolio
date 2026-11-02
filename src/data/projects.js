@@ -25,7 +25,7 @@ export const projects = [
     summary:
       'A mobile app that checks whether a GCash receipt is genuine or tampered with, so a seller can verify a payment before handing anything over.',
     detail:
-      'Reads the receipt image, validates its structure against the format GCash actually produces, and flags the small inconsistencies that editing software leaves behind.',
+      'It reads the receipt image and compares its structure with the format GCash produces. Small inconsistencies left by editing software get flagged.',
     stack: ['Flutter', 'Python', 'OCR'],
     links: [
       {
@@ -36,7 +36,7 @@ export const projects = [
     art: 'receipt',
     caseStudy: {
       lede:
-        'A receipt is a picture of a transaction, not the transaction. ViVy exists for the moment a seller is holding a bag and a stranger is holding up a screenshot.',
+        'A screenshot can show a payment without proving it happened. ViVy is built for the moment a seller is holding a bag while a stranger holds up a phone.',
       meta: [
         { label: 'Role', value: 'Frontend Developer' },
         { label: 'Timeline', value: '2025' },
@@ -46,27 +46,27 @@ export const projects = [
         {
           label: 'The problem',
           body:
-            'Sellers hand over goods against a screenshot. Editing one takes about a minute: retype the amount, nudge a reference number, keep everything else intact. The seller is not a forensic tool, and the transaction is already moving.',
+            'Sellers hand over goods against a screenshot. Editing one takes about a minute. Retype the amount, nudge a reference number, leave the rest alone. The seller has no way to inspect the file, and the transaction is already moving.',
         },
         {
           label: 'How it works',
           body:
-            'The image goes through OCR, then a structural check against the field order and formatting GCash actually produces. Spacing, reference length, font consistency, and compression artifacts all count against it. The result is a confidence signal, not a yes or no.',
+            'The image goes through OCR, then a structural check against the field order and formatting GCash produces. Spacing, reference length, font consistency, and compression artifacts all count. The app returns a confidence score, and the interface leaves the decision to the seller.',
         },
         {
           label: 'What it catches',
           body:
-            'Cropped receipts, reused screenshots, retyped fields, and amounts that do not match the claimed payment. The obvious edits fail early; the careful ones are what the structural checks are for.',
+            'Cropped receipts, reused screenshots, retyped fields, amounts that do not match the claimed payment. Obvious edits fail early. The careful ones survive longer, so the structural checks carry most of the weight.',
         },
         {
           label: 'What it misses',
           body:
-            'A genuine receipt from another transaction. A screen recording of a real payment. A determined editor who rebuilds the whole image. It narrows the problem — it does not close it, and the interface says so.',
+            'A genuine receipt from another transaction. A screen recording of a real payment. Someone patient enough to rebuild the whole image. These get through, and the interface says as much.',
         },
         {
           label: 'Next',
           body:
-            'Show the reason behind every flag instead of a score, and add a reference number the seller can check themselves. A verification tool that asks to be trusted is just another screenshot.',
+            'Explain every flag and give the seller a reference number they can look up themselves. A verification tool that asks to be trusted without showing its evidence leaves the seller where they started.',
         },
       ],
     },
@@ -78,9 +78,9 @@ export const projects = [
     category: 'Web · Product',
     year: '2025',
     summary:
-      'A trading ledger for Magic: The Gathering players, keeping three lists straight: the cards you want from a partner, the cards you can offer back, and the trades already done.',
+      'A trading ledger for Magic: The Gathering players, built around the three lists every trade produces. Cards you want, cards you can offer, and the trades already done.',
     detail:
-      'Built to work on a phone at the card table and on a desktop the night before a trade, so a deal can be rebuilt from the ledger instead of from scattered chat messages.',
+      'It works on a phone at the card table and on a desktop the night before, so a deal can be rebuilt from the ledger alone.',
     stack: ['React', 'JavaScript', 'CSS'],
     links: [
       {
@@ -110,32 +110,82 @@ export const projects = [
         {
           label: 'The build',
           body:
-            'A React app with one screen for the three states a trade moves through: wanted, offered, completed. Entry is fast because it happens in person, and the ledger is readable on a phone lying flat on a playmat.',
+            'A React app that keeps the three states of a trade on one screen. Wanted, offered, completed. Entry is fast because it happens in person, and the ledger stays readable on a phone lying flat on a playmat.',
         },
         {
           label: 'The decision',
           body:
-            'Make the trade the record, not the card. A card can be wanted in one deal, offered in another, and already gone in a third; grouping by trade keeps the same card from looking available twice and lets either person rebuild the table later.',
+            'The trade is the record. A card can be wanted in one deal, offered in another, and already gone in a third. Grouping by trade keeps it from looking available twice and lets either person rebuild the table later.',
         },
         {
           label: 'What it misses',
           body:
-            'No import from a collection scanner, and no offline mode — both matter at a table with bad signal. The next version starts there.',
+            'There is no import from a collection scanner yet, and no offline mode. Both matter at a table with bad signal, so the next version starts there.',
+        },
+      ],
+    },
+  },
+  {
+    id: 'glide',
+    num: '03',
+    title: 'Glide',
+    category: 'Mobile · Product',
+    year: '2025',
+    summary:
+      'A membership app for student organisations. Students create a profile once, then browse the org list, check fees and status, and register for the ones that are open.',
+    detail:
+      'Flutter for the app, Firebase for auth and data. The org list, search, saved organisations, and announcements sit in one place, so nobody has to chase a group chat to find the next step.',
+    stack: ['Flutter', 'Dart', 'Firebase'],
+    links: [
+      {
+        label: 'Code',
+        href: 'https://github.com/seramoera/glide_regis_app',
+      },
+    ],
+    art: 'roster',
+    caseStudy: {
+      lede:
+        'At the start of the year a student has one question. Which organisation do I join, and what does it cost? The rest can wait.',
+      meta: [
+        { label: 'Role', value: 'Design + build' },
+        { label: 'Timeline', value: '2025' },
+        { label: 'Status', value: 'In use' },
+      ],
+      blocks: [
+        {
+          label: 'The problem',
+          body:
+            "Sign-up lived in group chats, printed forms, and a treasurer's spreadsheet. Students had to ask which step came next, and the same details were copied by hand into three places.",
+        },
+        {
+          label: 'The build',
+          body:
+            'Flutter for the app, Firebase for authentication and data. Students sign up, fill in a profile once, then browse organisations by category, search, save the ones they like, and register. Every listing shows its fee and whether it is still open.',
+        },
+        {
+          label: 'The decision',
+          body:
+            'Keep the join flow short. A student makes this decision once a year, so the app asks for the profile details once and then gets out of the way. Fees and status sit on the listing, where they can be read before anyone starts a form.',
+        },
+        {
+          label: 'What it misses',
+          body:
+            'Payment is not part of the app; the listing only shows the fee. Posts and announcements are pull-only, with no push notifications yet.',
         },
       ],
     },
   },
   {
     id: 'jeep-box-hero',
-    num: '03',
+    num: '04',
     title: 'Jeep Box Hero',
     category: 'Game · Music',
     year: '2025',
     summary:
-      'A narrative shop game about running a record store built around OPM. You are the person behind the counter; every customer has a story and a record they are trying to find.',
+      'A narrative shop game about running a record store built around OPM. You work the counter, and every customer has a story and a record they are trying to find.',
     detail:
-      'Built the visual direction and the customer-facing flow: the shop, the record wall, and the moment a customer finds the right sleeve. The catalogue spans multiple OPM genres, so the clue is often in what they remember about the music.',
-    stack: ['Godot', 'Aseprite'],
+      'I built the visual direction and the customer-facing flow. That covers the shop, the record wall, and the moment a customer finds the right sleeve. The catalogue spans multiple OPM genres, so the clue is often in what they remember about the music.',
+    stack: ['Godot', 'Procreate'],
     links: [
       {
         label: 'Code',
@@ -145,7 +195,7 @@ export const projects = [
     art: 'records',
     caseStudy: {
       lede:
-        'A record store is a small stage: one counter, a wall of sleeves, and a customer trying to describe a song they cannot name.',
+        'A record store makes a small stage. One counter, a wall of sleeves, and a customer trying to describe a song they cannot name.',
       meta: [
         { label: 'Role', value: 'Visual Artist + build' },
         { label: 'Timeline', value: '2025' },
@@ -155,22 +205,22 @@ export const projects = [
         {
           label: 'The problem',
           body:
-            'A customer knows the feeling of a record, not always the title. The game has to make that gap playable: listen to the story, read the details, and choose the record that fits.',
+            'A customer remembers how a record felt long before they remember its title. The game turns that gap into the puzzle. Listen to the story, read the details, then pick the record that fits.',
         },
         {
           label: 'The build',
           body:
-            'Godot for the game, Aseprite for the art. I built the shop interface, the record wall, the customer portraits, and the dialogue flow that turns a request into a search.',
+            'Godot for the game, Procreate for the art. I built the shop interface, the record wall, the customer portraits, and the dialogue flow that turns a request into a search.',
         },
         {
           label: 'The decision',
           body:
-            'The store is organised by feeling as much as genre. Customers talk about a memory, a cover, or a song they heard once, and the record wall has to be readable enough for the player to make the connection. Multiple OPM genres share the shelves; the story is the filter.',
+            'The store is organised by feeling as much as genre. Customers talk about a memory, a cover, or a song they heard once, so the record wall has to be readable enough for the player to follow. Multiple OPM genres share the shelves, and the story does the filtering.',
         },
         {
           label: 'Next',
           body:
-            'The game is complete. The obvious next step is a larger catalogue and a few regulars whose stories continue across visits — but the shop already works as a finished small story.',
+            'The game is complete. A larger catalogue and a few regulars whose stories continue across visits would be the obvious next step. For now the shop works as a small finished story.',
         },
       ],
     },

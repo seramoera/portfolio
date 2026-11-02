@@ -27,8 +27,8 @@ export default function Skills() {
           </Reveal>
           <Reveal className="skills__intro-copy" delay={80}>
             <p>
-              Tools I reach for, grouped the way I actually use them. The last
-              cartridge is still loading.
+              Tools I reach for, grouped the way I use them. The last cartridge
+              is still loading.
             </p>
             <span className="label">
               <i aria-hidden="true" />

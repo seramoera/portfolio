@@ -33,7 +33,7 @@ npm run preview   # serve the production build locally
 
 | File | What it controls |
 |---|---|
-| `src/data/projects.js` | The three work channels, the CRT art, the case-study copy, `site` (email and social links). |
+| `src/data/projects.js` | The four work channels, the CRT art, the case-study copy, `site` (email and social links). |
 | `src/data/credentials.js` | Skill cartridges, the “currently learning” card, and certifications. |
 | `src/data/notes.js` | The field notes and their expanded tickets. |
 | `src/data/resume.js` | Education, experience, availability, the résumé sheet copy, and the PDF download path. |
