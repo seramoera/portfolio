@@ -4422,14 +4422,31 @@ html.is-booting {
   color: var(--ink-2);
 }
 
+.printout .cert__id {
+  display: block;
+  margin-top: 0.22rem;
+  font-family: var(--mono);
+  font-size: 0.46rem;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
 .printout .cert__issuer {
   text-align: right;
   font-family: var(--mono);
   font-size: 0.44rem;
+  line-height: 1.5;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--muted);
-  white-space: nowrap;
+  white-space: normal;
+}
+
+.printout .cert__date {
+  display: block;
+  margin-top: 0.1rem;
+  opacity: 0.75;
 }
 
 .printout .cert__status {

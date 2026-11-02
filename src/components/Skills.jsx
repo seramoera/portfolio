@@ -118,7 +118,7 @@ export default function Skills() {
 
           <header className="printout__head">
             <span className="label">Certification record</span>
-            <span className="label">Issuer · Year</span>
+            <span className="label">Issuer / Issued</span>
             <span className="label">Status</span>
           </header>
 
@@ -132,11 +132,14 @@ export default function Skills() {
                 <div className="cert__body">
                   <h4 className="cert__title">{cert.title}</h4>
                   <p className="cert__note">{cert.note}</p>
+                  {cert.credentialId ? (
+                    <span className="cert__id">ID {cert.credentialId}</span>
+                  ) : null}
                 </div>
 
                 <span className="cert__issuer">
-                  {cert.issuer}
-                  {cert.year ? ` · ${cert.year}` : ''}
+                  <span>{cert.issuer}</span>
+                  <span className="cert__date">Issued {cert.issued}</span>
                 </span>
 
                 <span className="cert__status">Recorded</span>
