@@ -161,8 +161,8 @@ export default function Resume() {
                 <section className="sheet__sec">
                   <h4>Certifications</h4>
                   <p className="sheet__line">
-                    Cisco (7) · freeCodeCamp (3) · AWS Academy Cloud Foundations ·
-                    CompTIA ITF+
+                    Cisco (7) · freeCodeCamp (3) · Tjakoen Stolk (3) · AWS Academy
+                    Cloud Foundations · CompTIA ITF+
                   </p>
                 </section>
 
