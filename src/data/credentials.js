@@ -21,6 +21,7 @@ export const skillGroups = [
       'C#',
       'Dart',
       'SQL',
+      'R',
       'HTML / CSS',
     ],
   },
@@ -28,7 +29,7 @@ export const skillGroups = [
     id: 'build',
     label: 'Build',
     note: 'Web, mobile, and the space between',
-    items: ['React', 'Flutter', 'Firebase', 'Node.js', 'Figma', 'Supabase'],
+    items: ['React', 'Flutter', 'Firebase', 'Node.js', 'Shiny', 'Figma', 'Supabase'],
   },
   {
     id: 'systems',

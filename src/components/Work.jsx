@@ -59,7 +59,7 @@ export default function Work() {
           </Reveal>
           <Reveal className="work__intro-copy" delay={90}>
             <p>
-              Four builds, each one shaped by a constraint. Tune the set, then
+              Five builds, each one shaped by a constraint. Tune the set, then
               read how each one was put together.
             </p>
             <span className="label work__intro-note">

@@ -183,12 +183,84 @@ function Road() {
   )
 }
 
+function Floorplan() {
+  const floors = [62, 156, 250]
+  return (
+    <svg viewBox="0 0 320 400" aria-hidden="true" focusable="false">
+      {floors.map((y, i) => (
+        <g key={y}>
+          {/* floor shell */}
+          <rect
+            x="52"
+            y={y}
+            width="216"
+            height="78"
+            rx="3"
+            {...s}
+            opacity={i === 2 ? 1 : 0.6}
+          />
+          {/* classrooms above the corridor */}
+          <path d={`M52 ${y + 52}h216`} {...s} opacity="0.5" />
+          {[88, 124, 160, 196, 232].map((x) => (
+            <path
+              key={x}
+              d={`M${x} ${y}v52`}
+              {...s}
+              opacity="0.35"
+            />
+          ))}
+          {/* stairwells at each end */}
+          <path d={`M70 ${y}v78M250 ${y}v78`} {...s} opacity="0.5" />
+          <path
+            d={`M56 ${y + 14}h9M56 ${y + 22}h12M56 ${y + 30}h15`}
+            {...s}
+            opacity="0.4"
+          />
+          <path
+            d={`M264 ${y + 14}h-9M264 ${y + 22}h-12M264 ${y + 30}h-15`}
+            {...s}
+            opacity="0.4"
+          />
+          {/* corridor centre line */}
+          <path
+            d={`M74 ${y + 65}h182`}
+            strokeDasharray="3 8"
+            {...s}
+            opacity="0.25"
+          />
+        </g>
+      ))}
+
+      {/* floor ticks */}
+      <path d="M44 74h-12M44 168h-12M44 262h-12" {...s} opacity="0.4" />
+
+      {/* fire on the middle corridor */}
+      <path d="M146 208h52" strokeDasharray="4 4" {...accent} />
+      <path
+        d="M172 206c-5-2-5-7-1-11 1 3 5 5 3 9a3 3 0 0 1-2 2Z"
+        {...accent}
+        opacity="0.9"
+      />
+
+      {/* exit from the ground-floor corridor */}
+      <path d="M160 306v24M152 322l8 8 8-8" {...accent} />
+      <circle cx="160" cy="350" r="4" {...accent} />
+
+      {/* ground line and header ticks */}
+      <path d="M40 380h240" {...s} opacity="0.2" />
+      <path d="M52 44h216" {...s} opacity="0.3" />
+      <path d="M52 44v-8M268 44v-8" {...s} opacity="0.3" />
+    </svg>
+  )
+}
+
 const art = {
   receipt: Receipt,
   cards: Cards,
   roster: Roster,
   records: Records,
   road: Road,
+  floors: Floorplan,
 }
 
 export default function ProjectArt({ kind = 'receipt' }) {

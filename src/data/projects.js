@@ -5,7 +5,7 @@
 // unique `id`, then bump `num` values so they still read in order.
 //
 // `art` picks the placeholder illustration in src/components/ProjectArt.jsx.
-// Options: 'receipt' | 'cards' | 'roster' | 'records' | 'road'
+// Options: 'receipt' | 'cards' | 'roster' | 'records' | 'road' | 'floors'
 // When you have real screenshots, drop them in /public and swap the
 // <ProjectArt /> block in src/components/Work.jsx for an <img />.
 //
@@ -221,6 +221,61 @@ export const projects = [
           label: 'Next',
           body:
             'The game is complete. A larger catalogue and a few regulars whose stories continue across visits would be the obvious next step. For now the shop works as a small finished story.',
+        },
+      ],
+    },
+  },
+  {
+    id: 'egress',
+    num: '05',
+    title: 'Egress',
+    category: 'Simulation · Data',
+    year: '2026',
+    summary:
+      'A school evacuation simulator. Occupants leave classrooms, pick a stairwell, and head for the exit while corridor fires close routes and force them to reroute.',
+    detail:
+      'R runs the model and Shiny puts it on a screen. Every run is reproducible from a seed, and the results cover who got out, who was still inside, and how long the building took to clear.',
+    stack: ['R', 'Shiny', 'ggplot2', 'dplyr'],
+    links: [
+      {
+        label: 'Code',
+        href: 'https://github.com/seramoera/egress-school-evacuation',
+      },
+    ],
+    art: 'floors',
+    caseStudy: {
+      lede:
+        'A drill gives one number and one route. Egress opens the building up, so a fire can be moved, a stairwell can be blocked, and the evacuation can be run again with a different seed.',
+      meta: [
+        { label: 'Role', value: 'Model + app' },
+        { label: 'Timeline', value: '2026' },
+        { label: 'Status', value: 'Working prototype' },
+      ],
+      blocks: [
+        {
+          label: 'The problem',
+          body:
+            'Evacuation numbers usually come from a single drill. One corridor filled with smoke can change every number after it, and without a way to run the building again the effect stays invisible.',
+        },
+        {
+          label: 'The build',
+          body:
+            'An R engine steps each occupant through the same loop. Walk to the room door, enter the corridor, take the nearer stairwell, descend, then cross the ground floor to the main exit. A Shiny app keeps the scenario inputs in a sidebar and replays the run on a timeline, one step at a time.',
+        },
+        {
+          label: 'The decision',
+          body:
+            'Keep the model away from the interface. sim_engine.R holds pure functions with no side effects, so a scenario can be tested from the console and the app can call the same code. Fires are corridor segments with a floor, an x-range, a start step, and a severity. When that range covers the path to a stairwell, the agent switches to the other one or waits.',
+        },
+        {
+          label: 'What it reports',
+          body:
+            'The run counts who evacuated and who was still inside when time ran out, then reports the time to clear, mean and median exit time, peak exit rate, and each fire start. Linear and logistic fits describe the evacuation curve. The app labels them as descriptions, since a fit on one scenario does not predict another building.',
+        },
+        {
+          label: 'What it misses',
+          body:
+            'The building is a fixed template. Rooms sit along a corridor, with a stairwell at each end and one exit in the middle. Real schools have wider stairs, messy doorways, and people who do not move like particles. Smoke slows agents only when that setting is raised, and it never spreads.',
         },
       ],
     },

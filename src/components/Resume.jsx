@@ -149,8 +149,8 @@ export default function Resume() {
                 <section className="sheet__sec">
                   <h4>Skills</h4>
                   <p className="sheet__line">
-                    JavaScript · Python · Java · Dart · C++ · C# · HTML5 · React ·
-                    Next.js · Node.js · Supabase
+                    JavaScript · Python · Java · Dart · C++ · C# · HTML5 · R ·
+                    React · Next.js · Node.js · Supabase
                   </p>
                 </section>
 
