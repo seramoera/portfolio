@@ -68,6 +68,15 @@ export const learning = {
 
 export const certifications = [
   {
+    id: 'fcc-js-algorithms',
+    title: 'Legacy JavaScript Algorithms and Data Structures V7',
+    issuer: 'freeCodeCamp',
+    issued: 'Nov 2026',
+    credentialId: 'amoera-ljaads',
+    note: 'Algorithms, data structures, and problem solving in JavaScript.',
+    href: 'https://www.freecodecamp.org/certification/amoera/javascript-algorithms-and-data-structures',
+  },
+  {
     id: 'tjakoen-fullstack-js-ai',
     title: 'Builds Full-Stack JavaScript and AI',
     issuer: 'Tjakoen Stolk',
@@ -138,14 +147,6 @@ export const certifications = [
     credentialId: '93842712-a829-471c-966a-e7b89042843c',
     note: 'Data preparation, analysis, and visualization foundations.',
     href: 'https://www.credly.com/badges/93842712-a829-471c-966a-e7b89042843c',
-  },
-  {
-    id: 'fcc-js-algorithms',
-    title: 'JavaScript Algorithms and Data Structures',
-    issuer: 'freeCodeCamp',
-    issued: '2026',
-    note: 'Algorithms, data structures, and problem solving in JavaScript.',
-    href: '#',
   },
   {
     id: 'cisco-endpoint-security',
