@@ -68,6 +68,33 @@ export const learning = {
 
 export const certifications = [
   {
+    id: 'tjakoen-fullstack-js-ai',
+    title: 'Builds Full-Stack JavaScript and AI',
+    issuer: 'Tjakoen Stolk',
+    issued: 'Nov 2026',
+    credentialId: 'hau-7bcda2e924c760b78a1adf29',
+    note: 'AI use documented in a Node, Express, and Postgres build, including the corrections it needed.',
+    href: 'https://tjakoen.github.io/b/7bcda2e924c760b7',
+  },
+  {
+    id: 'tjakoen-fullstack-web',
+    title: 'Full Stack Web Development',
+    issuer: 'Tjakoen Stolk',
+    issued: 'Sep 2026',
+    credentialId: 'hau-apsi-2209-midterm-cf726119',
+    note: 'A relational REST API and the React client that consumes it.',
+    href: 'https://tjakoen.github.io/b/cf726119',
+  },
+  {
+    id: 'tjakoen-frontend-cloud',
+    title: 'Frontend Design with Cloud',
+    issuer: 'Tjakoen Stolk',
+    issued: 'Sep 2026',
+    credentialId: 'hau-apsi-2209-prelim-fb082f71',
+    note: 'A proctored React practical covering components, state, theming, and responsive layout.',
+    href: 'https://tjakoen.github.io/b/fb082f71',
+  },
+  {
     id: 'cisco-cyber-threat',
     title: 'Cyber Threat Management',
     issuer: 'Cisco',

@@ -8,7 +8,7 @@
 
 export const resume = {
   href: `${import.meta.env.BASE_URL}Jasmine-Magtanong-Resume.pdf`,
-  updated: 'October 2026',
+  updated: 'November 2026',
   pages: '1 page',
   summary:
     'A CS undergraduate who builds web and mobile software and wants to find out whether it holds up in a real team. I am looking for a required OJT placement where I can learn from people who have shipped more than I have.',

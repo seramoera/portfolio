@@ -144,6 +144,10 @@ export default function Resume() {
                     <span>Jeep Box Hero — OPM record-store game (Godot)</span>
                     <span>2025</span>
                   </div>
+                  <div className="sheet__row">
+                    <span>Egress — school evacuation model (R, Shiny)</span>
+                    <span>2026</span>
+                  </div>
                 </section>
 
                 <section className="sheet__sec">
